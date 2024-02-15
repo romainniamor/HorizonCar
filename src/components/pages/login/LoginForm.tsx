@@ -9,6 +9,7 @@ export default function LoginForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert(`welcome ${inputValue}`);
+    setInputValue("");
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,6 +23,7 @@ export default function LoginForm() {
       <h2>Connectez-vous</h2>
       <form onSubmit={handleSubmit}>
         <input
+          required
           type="text"
           name="username"
           placeholder="Entrez votre prénom..."
