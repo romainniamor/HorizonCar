@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { styled } from "styled-components";
 
 export default function LoginForm() {
   //state
@@ -20,8 +21,7 @@ export default function LoginForm() {
 
   //affichage
   return (
-    <>
-      <h1>Horizon Car Service</h1>
+    <LoginPageStyled>
       <h2>Connectez-vous</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -34,6 +34,22 @@ export default function LoginForm() {
         />
         <button>Accedez à votre espace</button>
       </form>
-    </>
+    </LoginPageStyled>
   );
 }
+
+const LoginPageStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid red;
+    gap: 10px;
+  }
+`;
