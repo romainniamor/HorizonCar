@@ -1,13 +1,12 @@
 import React from "react";
-import { useState } from "react";
 
-export default function LoginPage() {
+export default function LoginForm() {
   //state
 
   const [inputValue, setInputValue] = React.useState<string>("");
 
   //comportements
-  const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert(`welcome ${inputValue}`);
   };
@@ -18,7 +17,7 @@ export default function LoginPage() {
 
   //affichage
   return (
-    <div>
+    <>
       <h1>Horizon Car Service</h1>
       <h2>Connectez-vous</h2>
       <form onSubmit={handleSubmit}>
@@ -31,6 +30,6 @@ export default function LoginPage() {
         />
         <button>Accedez à votre espace</button>
       </form>
-    </div>
+    </>
   );
 }
