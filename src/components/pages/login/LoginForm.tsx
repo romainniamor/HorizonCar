@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 import { theme } from "../../../theme/index";
 import { FaUser } from "react-icons/fa";
 import Button from "../../reusable/Button";
+import TextInput from "../../reusable/TextInput";
 
 export default function LoginForm() {
   //state
@@ -28,19 +29,13 @@ export default function LoginForm() {
       <hr />
       <h2>se connecter</h2>
       <form onSubmit={handleSubmit}>
-        <div className="text-input">
-          <div className="icon">
-            <FaUser />
-          </div>
-          <input
-            required
-            type="text"
-            name="username"
-            placeholder="Entrez votre prénom"
-            value={inputValue}
-            onChange={handleChange}
-          />
-        </div>
+        <TextInput
+          icon={<FaUser />}
+          value={inputValue}
+          onChange={handleChange}
+          placeholder={"Entrez votre prénom"}
+          required
+        />
         <Button label={"Accedez à votre espace"} />
       </form>
     </LoginFormStyled>
@@ -73,41 +68,5 @@ const LoginFormStyled = styled.div`
     align-items: center;
     gap: ${theme.spacing.md};
     width: 100%;
-
-    .text-input {
-      border-radius: ${theme.borderRadius.round};
-      display: flex;
-      gap: ${theme.spacing.xs};
-      align-items: center;
-      padding: 18px 24px;
-      color: ${theme.colors.greyBlue};
-      font-size: ${theme.fonts.sm};
-      background: ${theme.colors.greyLight};
-      border: 1px solid ${theme.colors.dark};
-      width: 100%;
-
-      input {
-        border: none;
-        padding: 2px;
-        width: 100%;
-        background: transparent;
-
-        color: ${theme.colors.dark};
-        &::placeholder {
-          color: ${theme.colors.greyBlue};
-        }
-        &:focus {
-          outline: 1px solid ${theme.colors.greySemiDark};
-        }
-      }
-
-      .icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: ${theme.colors.greyBlue};
-        font-size: ${theme.fonts.sm};
-      }
-    }
   }
 `;
