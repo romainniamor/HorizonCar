@@ -26,7 +26,7 @@ export default function LoginForm() {
   return (
     <LoginFormStyled>
       <hr />
-      <h2>Connectez-vous</h2>
+      <h2>se connecter</h2>
       <form onSubmit={handleSubmit}>
         <div className="text-input">
           <div className="icon">
@@ -36,13 +36,12 @@ export default function LoginForm() {
             required
             type="text"
             name="username"
-            placeholder="Entrez votre prénom..."
+            placeholder="Entrez votre prénom"
             value={inputValue}
             onChange={handleChange}
           />
         </div>
-
-        <Button />
+        <Button label={"Accedez à votre espace"} />
       </form>
     </LoginFormStyled>
   );
@@ -62,6 +61,9 @@ const LoginFormStyled = styled.div`
   hr {
     width: 80%;
     border: 1px solid ${theme.colors.greyMedium};
+  }
+  h2 {
+    text-transform: uppercase;
   }
 
   form {
@@ -92,7 +94,7 @@ const LoginFormStyled = styled.div`
 
         color: ${theme.colors.dark};
         &::placeholder {
-          color: ${theme.colors.greyMedium};
+          color: ${theme.colors.greyBlue};
         }
         &:focus {
           outline: 1px solid ${theme.colors.greySemiDark};

@@ -6,7 +6,7 @@ import Logo from "../../reusable/Logo";
 export default function LoginPage() {
   return (
     <LoginPageStyled>
-      <div className="right">
+      <div className="login-page-content">
         <Logo />
         <LoginForm />
       </div>
@@ -25,7 +25,7 @@ const LoginPageStyled = styled.div`
   background-size: cover;
   background-position: center;
 
-  .right {
+  .login-page-content {
     height: 100%;
     width: 40%;
     max-width: 630px;
