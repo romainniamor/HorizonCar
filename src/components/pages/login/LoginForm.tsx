@@ -1,5 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { styled } from "styled-components";
+import { theme } from "../../../theme/index";
+import { FaUser } from "react-icons/fa";
+import PrimaryButton from "../../reusable/PrimaryButton";
+import TextInput from "../../reusable/TextInput";
+
+import { FaChevronCircleRight } from "react-icons/fa";
 
 export default function LoginForm() {
   //state
@@ -20,20 +27,51 @@ export default function LoginForm() {
 
   //affichage
   return (
-    <>
-      <h1>Horizon Car Service</h1>
-      <h2>Connectez-vous</h2>
+    <LoginFormStyled>
+      <hr />
+      <h2>se connecter</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          required
-          type="text"
-          name="username"
-          placeholder="Entrez votre prénom..."
+        <TextInput
+          icon={<FaUser />}
           value={inputValue}
           onChange={handleChange}
+          placeholder={"Entrez votre prénom"}
+          required
         />
-        <button>Accedez à votre espace</button>
+        <PrimaryButton
+          label={"Accedez à votre espace"}
+          icon={<FaChevronCircleRight />}
+        />
       </form>
-    </>
+    </LoginFormStyled>
   );
 }
+const LoginFormStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Amatic SC", cursive;
+  gap: ${theme.spacing.md};
+  color: ${theme.colors.greyLight};
+  max-width: 464px;
+  min-width: 400px;
+  padding: 2.5rem 2rem;
+
+  hr {
+    width: 80%;
+    border: 1px solid ${theme.colors.greyMedium};
+  }
+  h2 {
+    text-transform: uppercase;
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: ${theme.spacing.md};
+    width: 100%;
+  }
+`;
