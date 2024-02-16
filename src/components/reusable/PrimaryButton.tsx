@@ -5,11 +5,12 @@ import { theme } from "../../theme";
 type ButtonProps = {
   label: string;
   icon?: React.ReactElement;
+  onClick?: () => void;
 };
 
-export default function PrimaryButton({ label, icon }: ButtonProps) {
+export default function PrimaryButton({ label, icon, onClick }: ButtonProps) {
   return (
-    <PrimaryButtonStyled>
+    <PrimaryButtonStyled onClick={onClick}>
       <span className="label">{label}</span>
       <div className="icon">{icon && icon}</div>
     </PrimaryButtonStyled>
