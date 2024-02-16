@@ -8,6 +8,7 @@ export default function LoginPage() {
     <LoginPageStyled>
       <div className="login-page-content">
         <Logo />
+
         <LoginForm />
       </div>
     </LoginPageStyled>
@@ -29,12 +30,18 @@ const LoginPageStyled = styled.div`
     height: 100%;
     width: 40%;
     max-width: 630px;
-    min-width: 500px;
+    min-width: 350px;
     background-color: ${theme.colors.dark + "90"};
     box-shadow: ${theme.shadows.medium};
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  @media (max-width: 630px) {
+    .login-page-content {
+      width: 100%;
+    }
   }
 `;

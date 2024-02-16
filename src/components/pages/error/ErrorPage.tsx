@@ -49,5 +49,6 @@ const ErrorPageStyled = styled.div`
   h2 {
     text-transform: uppercase;
     color: ${theme.colors.greyLight};
+    text-align: center;
   }
 `;
