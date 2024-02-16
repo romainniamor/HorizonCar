@@ -7,7 +7,7 @@ type TextInputProps = {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required: boolean;
-  icon: React.ReactNode;
+  icon?: React.ReactElement;
 };
 
 export default function TextInput({

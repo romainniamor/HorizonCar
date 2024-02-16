@@ -1,22 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
-import { FaChevronCircleRight } from "react-icons/fa";
 
 type ButtonProps = {
   label: string;
+  icon?: React.ReactElement;
 };
 
-export default function Button({ label }: ButtonProps) {
+export default function PrimaryButton({ label, icon }: ButtonProps) {
   return (
-    <ButtonStyled>
+    <PrimaryButtonStyled>
       <span className="label">{label}</span>
-      <FaChevronCircleRight className="icon" />
-    </ButtonStyled>
+      <div className="icon">{icon && icon}</div>
+    </PrimaryButtonStyled>
   );
 }
 
-const ButtonStyled = styled.button`
+const PrimaryButtonStyled = styled.button`
   cursor: pointer;
   border: 1px solid transparent;
   display: flex;
@@ -27,7 +27,6 @@ const ButtonStyled = styled.button`
   font-weight: ${theme.weights.bold};
   border-radius: ${theme.borderRadius.round};
   width: 100%;
-  gap: ${theme.spacing.xs};
   background: ${theme.colors.primary};
   font-size: ${theme.fonts.sm};
   font-weight: ${theme.weights.bold};
@@ -36,6 +35,7 @@ const ButtonStyled = styled.button`
 
   .icon {
     display: flex;
+    margin-left: ${theme.spacing.xs};
   }
 
   &:hover {

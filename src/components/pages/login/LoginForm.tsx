@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import { theme } from "../../../theme/index";
 import { FaUser } from "react-icons/fa";
-import Button from "../../reusable/Button";
+import PrimaryButton from "../../reusable/PrimaryButton";
 import TextInput from "../../reusable/TextInput";
+
+import { FaChevronCircleRight } from "react-icons/fa";
 
 export default function LoginForm() {
   //state
@@ -36,7 +38,10 @@ export default function LoginForm() {
           placeholder={"Entrez votre prénom"}
           required
         />
-        <Button label={"Accedez à votre espace"} />
+        <PrimaryButton
+          label={"Accedez à votre espace"}
+          icon={<FaChevronCircleRight />}
+        />
       </form>
     </LoginFormStyled>
   );
