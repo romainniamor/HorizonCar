@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import { theme } from "../../../theme/index";
-import NavBar from "./NavBar";
-import MainContent from "./MainContent";
+import { useParams } from "react-router-dom";
+import NavBar from "./navBar/NavBar";
+import MainContent from "./mainContent/MainContent";
 
 export default function MainPage() {
+  const { userName } = useParams();
+
   return (
     <MainPageStyled>
-      <NavBar />
+      <NavBar userName={userName} />
       <MainContent />
     </MainPageStyled>
   );
