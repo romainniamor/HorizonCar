@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import RightSide from "./RightSide";
+import Logo from "../../../reusable/Logo";
 
 type NavBarProps = {
   userName: string;
@@ -8,7 +9,7 @@ type NavBarProps = {
 export default function NavBar({ userName }: NavBarProps) {
   return (
     <NavBarStyled>
-      <p>logo</p>
+      <Logo />
       <RightSide userName={userName} />
     </NavBarStyled>
   );
