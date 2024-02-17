@@ -1,12 +1,16 @@
 import styled from "styled-components";
 import { theme } from "../../theme/index";
 
-export default function Logo() {
-  return <LogoStyled>horizon car</LogoStyled>;
+type LogoProps = {
+  className?: string;
+};
+
+export default function Logo({ className }: LogoProps) {
+  return <LogoStyled className={className}>horizon car</LogoStyled>;
 }
 
 const LogoStyled = styled.div`
-  font-size: ${theme.fonts.P6};
+  font-size: ${theme.fonts.P3};
   font-family: ${theme.fontFamily.title};
   color: ${theme.colors.primary};
   text-shadow: ${theme.shadows.subtle};
