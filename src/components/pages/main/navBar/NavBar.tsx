@@ -1,26 +1,22 @@
 import styled from "styled-components";
 import RightSide from "./RightSide";
 import Logo from "../../../reusable/Logo";
+import { theme } from "../../../../theme/index";
 
-type NavBarProps = {
-  userName: string;
-};
-
-export default function NavBar({ userName }: NavBarProps) {
+export default function NavBar() {
   return (
     <NavBarStyled>
       <Logo />
-      <RightSide userName={userName} />
+      <RightSide />
     </NavBarStyled>
   );
 }
 
 const NavBarStyled = styled.div`
   width: 100%;
-  height: 80px;
-  background-color: red;
+  height: 50px;
+  background-color: ${theme.colors.primary};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
 `;

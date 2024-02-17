@@ -1,20 +1,31 @@
+import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme/index";
 
-type LogoProps = {
-  className?: string;
-};
+type Props = {};
 
-export default function Logo({ className }: LogoProps) {
-  return <LogoStyled className={className}>horizon car</LogoStyled>;
+export default function Logo({}: Props) {
+  return <LogoStyled>Logo</LogoStyled>;
 }
 
 const LogoStyled = styled.div`
-  font-size: ${theme.fonts.P3};
-  font-family: ${theme.fontFamily.title};
-  color: ${theme.colors.primary};
-  text-shadow: ${theme.shadows.subtle};
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  line-height: 1;
+  height: 100%;
+  width: 180px;
+  background: ${theme.colors.white};
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+
+    background: ${theme.colors.white};
+    transform: skewX(-25deg);
+    height: 100%;
+    top: 0;
+    right: -15px;
+  }
 `;
