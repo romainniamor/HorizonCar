@@ -1,27 +1,27 @@
 import styled from "styled-components";
-
-import { theme } from "../../../../theme/index";
-import { useState } from "react";
+import React, { useState } from "react";
 import NavIcon from "../../../reusable/NavIcon";
+import { theme } from "../../../../theme/index";
 
 import {
-  FaRegUser,
   FaRegHeart,
-  FaUserAlt,
   FaHeart,
-  FaBell,
   FaRegBell,
+  FaBell,
+  FaRegUser,
+  FaUserAlt,
 } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 
-export default function RightSide() {
-  const [hoveredIcons, setHoveredIcons] = useState([]);
+type NavIconConfig = {
+  icon: React.ReactNode;
+  altIcon: React.ReactNode;
+};
 
-  /**
-   * Array of objects representing icons and their alternative icons.
-   * Each object has an `icon` property representing the default icon and an `altIcon` property representing the alternative icon.
-   */
-  const icons = [
+export default function RightSide() {
+  const [hoveredIcons, setHoveredIcons] = useState<boolean[]>([]);
+
+  const icons: NavIconConfig[] = [
     {
       icon: <FaRegHeart />,
       altIcon: <FaHeart />,
@@ -40,12 +40,11 @@ export default function RightSide() {
     },
   ];
 
-  const handleHover = (index) => {
-    console.log(index);
+  const handleHover = (index: number): void => {
     setHoveredIcons((hoveredIcons) => {
       const updatedHoveredIcons = [...hoveredIcons];
       updatedHoveredIcons[index] = !updatedHoveredIcons[index];
-      return updatedHoveredIcons; //return true or false, if true show altIcon else show icon
+      return updatedHoveredIcons;
     });
   };
 
