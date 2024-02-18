@@ -5,7 +5,7 @@ const colors = {
   background_white: "#f5f5f7",
   background_dark: "#292729",
   primary: "#f37120",
-  second: "#003e70",
+  secondary: "#003e70",
   success: "#60bd4f",
   red: "#e25549",
   redSecondary: "#c4151c",
@@ -23,6 +23,7 @@ const fontFamily = {
 };
 
 const spacing = {
+  xxxs: "2px",
   xxs: "4px",
   xs: "8px",
   sm: "12px",
@@ -39,7 +40,7 @@ const fonts = {
   P0: "15px",
   P1: "18px",
   P2: "20px",
-  P3: "24px",
+  P3: "22px",
   P4: "36px",
   P5: "48px",
   P6: "60px",
