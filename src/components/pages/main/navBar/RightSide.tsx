@@ -1,4 +1,9 @@
 import styled from "styled-components";
+
+import { theme } from "../../../../theme/index";
+import { useState } from "react";
+import NavIcon from "../../../reusable/NavIcon";
+
 import {
   FaRegUser,
   FaRegHeart,
@@ -8,40 +13,52 @@ import {
   FaRegBell,
 } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { theme } from "../../../../theme/index";
-import { useState } from "react";
 
 export default function RightSide() {
   const [hoveredIcons, setHoveredIcons] = useState([]);
 
+  /**
+   * Array of objects representing icons and their alternative icons.
+   * Each object has an `icon` property representing the default icon and an `altIcon` property representing the alternative icon.
+   */
+  const icons = [
+    {
+      icon: <FaRegHeart />,
+      altIcon: <FaHeart />,
+    },
+    {
+      icon: <FaRegBell />,
+      altIcon: <FaBell />,
+    },
+    {
+      icon: <MdOutlineShoppingCart />,
+      altIcon: <MdOutlineShoppingCart />,
+    },
+    {
+      icon: <FaRegUser />,
+      altIcon: <FaUserAlt />,
+    },
+  ];
+
   const handleHover = (index) => {
-    setHoveredIcons((prevHoveredIcons) => {
-      const updatedHoveredIcons = [...prevHoveredIcons];
+    console.log(index);
+    setHoveredIcons((hoveredIcons) => {
+      const updatedHoveredIcons = [...hoveredIcons];
       updatedHoveredIcons[index] = !updatedHoveredIcons[index];
-      return updatedHoveredIcons;
+      return updatedHoveredIcons; //return true or false, if true show altIcon else show icon
     });
   };
-
-  console.log(hoveredIcons);
-
-  const icons = [
-    { icon: <FaRegHeart />, altIcon: <FaHeart /> },
-    { icon: <FaRegBell />, altIcon: <FaBell /> },
-    { icon: <MdOutlineShoppingCart />, altIcon: <MdOutlineShoppingCart /> },
-    { icon: <FaRegUser />, altIcon: <FaUserAlt /> },
-  ];
 
   return (
     <RightSideStyled>
       {icons.map((item, index) => (
-        <div
+        <NavIcon
           key={index}
-          className={`nav-icon ${hoveredIcons[index] ? "hovered" : ""}`}
+          className={`${hoveredIcons[index] ? "hovered" : ""}`}
           onMouseEnter={() => handleHover(index)}
           onMouseLeave={() => handleHover(index)}
-        >
-          {hoveredIcons[index] ? item.altIcon : item.icon}
-        </div>
+          icon={hoveredIcons[index] ? item.altIcon : item.icon}
+        />
       ))}
     </RightSideStyled>
   );
@@ -56,18 +73,4 @@ const RightSideStyled = styled.div`
   background-color: transparent;
   height: 100%;
   margin-right: 20px;
-
-  .nav-icon {
-    color: ${theme.colors.white};
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    cursor: not-allowed;
-
-    &:hover {
-      color: ${theme.colors.primary};
-      background-color: ${theme.colors.white};
-    }
-  }
 `;
