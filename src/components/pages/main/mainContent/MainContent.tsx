@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Hero from "./hero/Hero";
 import { theme } from "../../../../theme/index";
+import { scrollToTop } from "../../../../utils/window";
 
 type Props = {};
 
