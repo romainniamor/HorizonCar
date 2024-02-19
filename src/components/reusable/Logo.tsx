@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { theme } from "../../theme/index";
+import { refreshPage } from "../../utils/window";
 
 type Props = {};
 
 export default function Logo({}: Props) {
   return (
-    <LogoStyled>
+    <LogoStyled onClick={refreshPage}>
       <span>auto</span>
       <span>horizon</span>
     </LogoStyled>
@@ -20,6 +21,7 @@ const LogoStyled = styled.div`
   display: flex;
   align-items: center;
   padding-left: 20px;
+  cursor: pointer;
 
   span {
     font-family: ${theme.fontFamily.title};
