@@ -1,10 +1,18 @@
-import { Theme } from "./types";
+import {
+  Colors,
+  FontFamily,
+  Spacing,
+  Fonts,
+  BorderRadius,
+  Shadows,
+  Weights,
+  Theme,
+} from "./indexType";
 
 const colors: Colors = {
-  dark: "#17161a",
+  dark: "#1a1a1a",
   white: "#ffffff",
-  background_white: "#f5f5f7",
-  background_dark: "#292729",
+  background_white: "#f7f7f7",
   primary: "#f37120",
   secondary: "#003e70",
   success: "#60bd4f",
@@ -12,7 +20,7 @@ const colors: Colors = {
   redSecondary: "#c4151c",
   blue: "#51a7e1",
   greyLight: "#e4e5e9",
-  greyMedium: "#a7a8ad",
+  greyMedium: "#8b8b8b",
   greySemiDark: "#93a2b1",
   greyDark: "#6f737e",
   greyBlue: "#747b91",
@@ -37,8 +45,8 @@ const spacing: Spacing = {
 const fonts: Fonts = {
   xxs: "8px",
   xs: "10px",
-  S: "12px",
-  P0: "15px",
+  S: "13px",
+  P0: "14px",
   P1: "18px",
   P2: "20px",
   P3: "22px",
