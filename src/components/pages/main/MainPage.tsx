@@ -14,7 +14,7 @@ export default function MainPage() {
 
 const MainPageStyled = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   background-color: ${theme.colors.background_white};
