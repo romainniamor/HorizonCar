@@ -43,7 +43,6 @@ const HeroStyled = styled.div`
   position: relative;
   background-color: ${theme.colors.white};
   overflow: hidden;
-  border: 1px solid black;
 
   .item-animated-enter {
     transform: translateY(100%);

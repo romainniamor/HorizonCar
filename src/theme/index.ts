@@ -50,7 +50,7 @@ const fonts: Fonts = {
   P1: "18px",
   P2: "20px",
   P3: "22px",
-  P4: "36px",
+  P4: "32px",
   P5: "48px",
   P6: "60px",
 };

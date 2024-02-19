@@ -27,8 +27,16 @@ export default function MainContent({}: Props) {
 
 const MainContentStyled = styled.div`
   width: 100%;
-
   background-color: ${theme.colors.background_white};
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
   .text-input {
     border-radius: ${theme.borderRadius.round};
@@ -39,7 +47,8 @@ const MainContentStyled = styled.div`
     font-size: ${theme.fonts.sm};
     border: 1px solid ${theme.colors.greyLight};
     background-color: ${theme.colors.white};
-    box-shadow: ${theme.shadows.subtle};
+    width: 70%;
+
     &:hover {
       border: 1.5px solid ${theme.colors.primary};
     }
