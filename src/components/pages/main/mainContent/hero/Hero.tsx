@@ -3,6 +3,7 @@ import { theme } from "../../../../../theme/index";
 import { FaMousePointer, FaExchangeAlt, FaCar } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import HeroItem from "./HeroItem";
 
 export default function Hero() {
   const messagesData = [
@@ -28,10 +29,10 @@ export default function Hero() {
         classNames="item-animated"
         key={currentIndex}
       >
-        <div className="hero-item">
-          <div className="icon">{messagesData[currentIndex].icon}</div>
-          <span className="message">{messagesData[currentIndex].label}</span>
-        </div>
+        <HeroItem
+          label={messagesData[currentIndex].label}
+          icon={messagesData[currentIndex].icon}
+        />
       </CSSTransition>
     </TransitionGroup>
   );
@@ -42,30 +43,7 @@ const HeroStyled = styled.div`
   position: relative;
   background-color: ${theme.colors.white};
   overflow: hidden;
-
-  .hero-item {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: ${theme.fonts.S};
-    font-weight: ${theme.weights.medium};
-    gap: ${theme.spacing.xs};
-    height: 100%;
-    width: 100%;
-  }
-
-  .icon {
-    display: flex;
-    color: ${theme.colors.primary};
-  }
-
-  .message {
-    color: ${theme.colors.secondary};
-    text-transform: capitalize;
-  }
+  border: 1px solid black;
 
   .item-animated-enter {
     transform: translateY(100%);
