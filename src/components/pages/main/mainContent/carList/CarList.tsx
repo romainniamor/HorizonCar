@@ -21,7 +21,7 @@ export default function CarList({}: Props) {
     <CarListStyled>
       {cars.map((car) => {
         return (
-          <Car {...car}>
+          <Car {...car} key={car.id}>
             <ToggleButton isChecked={true} onClick={() => {}} />
             <PrimaryButton label="Voir cette voiture" onClick={() => {}} />
           </Car>
@@ -32,8 +32,8 @@ export default function CarList({}: Props) {
 }
 const CarListStyled = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-row-gap: 15px;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+  width: 100%;
+  grid-gap: 15px;
   padding-bottom: 80px;
 `;

@@ -18,6 +18,8 @@ export default function MainContent({}: Props) {
 
 const MainContentStyled = styled.div`
   width: 100%;
+  max-width: 2400px;
+  padding: 0 15px;
   background-color: ${theme.colors.background_white};
   display: flex;
   flex-direction: column;

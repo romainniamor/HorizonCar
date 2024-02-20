@@ -37,6 +37,6 @@ const HeroItemStyled = styled.div`
 
   .message {
     color: ${theme.colors.secondary};
-    text-transform: capitalize;
+
   }
 `;

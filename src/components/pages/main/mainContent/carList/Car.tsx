@@ -54,9 +54,10 @@ export default function Car({
 
 const CarStyled = styled.div`
   border-radius: ${theme.borderRadius.round};
-  box-sizing: border-box;
+  border: 1px solid transparent;
   overflow: hidden;
-  max-width: 530px;
+  width: auto;
+  min-width: 350px;
   background: ${theme.colors.white};
   display: flex;
   flex-direction: column;
@@ -64,6 +65,7 @@ const CarStyled = styled.div`
 
   &:hover {
     border: 1px solid ${theme.colors.greyLight};
+    box-shadow: ${theme.shadows.subtle};
   }
   .image-preview {
     width: 100%;
