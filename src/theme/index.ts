@@ -1,15 +1,4 @@
-import {
-  Colors,
-  FontFamily,
-  Spacing,
-  Fonts,
-  BorderRadius,
-  Shadows,
-  Weights,
-  Theme,
-} from "./indexType";
-
-const colors: Colors = {
+const colors = {
   dark: "#1a1a1a",
   white: "#ffffff",
   background_white: "#f7f7f7",
@@ -26,12 +15,12 @@ const colors: Colors = {
   greyBlue: "#747b91",
 };
 
-const fontFamily: FontFamily = {
+const fontFamily = {
   normal: "Open Sans, sans-serif",
   title: "Anton, sans-serif",
 };
 
-const spacing: Spacing = {
+const spacing = {
   xxxs: "2px",
   xxs: "4px",
   xs: "8px",
@@ -42,7 +31,7 @@ const spacing: Spacing = {
   xxl: "84px",
 };
 
-const fonts: Fonts = {
+const fonts = {
   xxs: "8px",
   xs: "10px",
   S: "13px",
@@ -55,20 +44,20 @@ const fonts: Fonts = {
   P6: "60px",
 };
 
-const borderRadius: BorderRadius = {
+const borderRadius = {
   round: "5px",
   extraRound: "15px",
   circle: "50%",
 };
 
-const shadows: Shadows = {
+const shadows = {
   subtle: "0px -6px 8px -2px rgba(0, 0, 0, 0.1)",
   medium: "-8px 8px 20px 0px rgb(0 0 0 / 20%)",
   strong: "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
   orangeHighLight: "0 0 8px 0 rgb(255 154 35 / 100%)",
 };
 
-const weights: Weights = {
+const weights = {
   light: 300,
   regular: 400,
   medium: 500,
@@ -77,7 +66,7 @@ const weights: Weights = {
   heavy: 800,
 };
 
-export const theme: Theme = {
+export const theme = {
   colors,
   fonts,
   borderRadius,
