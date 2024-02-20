@@ -1,4 +1,4 @@
-import IconButton from "../../../../reusable/IconButton";
+import IconButton from "../../../../reusable/buttons/IconButton";
 import { FiSearch } from "react-icons/fi";
 import styled from "styled-components";
 import { theme } from "../../../../../theme/index";

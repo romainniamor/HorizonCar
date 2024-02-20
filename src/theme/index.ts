@@ -3,6 +3,7 @@ const colors = {
   white: "#ffffff",
   background_white: "#f7f7f7",
   primary: "#f37120",
+  primaryLight: "#f27d33",
   secondary: "#003e70",
   success: "#60bd4f",
   red: "#e25549",

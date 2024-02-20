@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../../theme";
+import { theme } from "../../../theme";
 
 type IconButtonProps = {
   icon: React.ReactNode;
@@ -23,7 +23,7 @@ const IconButtonStyled = styled.div`
   border-radius: ${theme.borderRadius.round};
 
   &:hover {
-    background-color: #f3782b;
+    background-color: ${theme.colors.primaryLight};
   }
 
   &:active {

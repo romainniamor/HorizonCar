@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../theme";
+import { theme } from "../../../theme";
 
 type ButtonProps = {
   label: string;
@@ -19,19 +19,19 @@ export default function PrimaryButton({ label, icon, onClick }: ButtonProps) {
 
 const PrimaryButtonStyled = styled.button`
   cursor: pointer;
-  border: 1px solid transparent;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   color: ${theme.colors.white};
   font-family: ${theme.fontFamily.normal};
-  font-weight: ${theme.weights.bold};
+  font-weight: ${theme.weights.semiBold};
   border-radius: ${theme.borderRadius.round};
   width: 100%;
   background: ${theme.colors.primary};
   font-size: ${theme.fonts.sm};
   font-weight: ${theme.weights.bold};
-  padding: 18px 24px;
+  padding: 15px 30px;
   line-height: 1;
 
   .icon {
@@ -40,9 +40,7 @@ const PrimaryButtonStyled = styled.button`
   }
 
   &:hover {
-    background: ${theme.colors.white};
-    color: ${theme.colors.primary};
-    border: 1px solid ${theme.colors.primary};
+    background: ${theme.colors.primaryLight};
   }
 
   &:active {

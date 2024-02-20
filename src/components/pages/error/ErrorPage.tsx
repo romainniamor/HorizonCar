@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme/index";
-import PrimaryButton from "../../reusable/PrimaryButton";
+import PrimaryButton from "../../reusable/buttons/PrimaryButton";
 import { FaChevronCircleRight } from "react-icons/fa";
 
 type Props = {};
