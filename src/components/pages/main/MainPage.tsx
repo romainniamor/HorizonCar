@@ -17,5 +17,6 @@ const MainPageStyled = styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: ${theme.colors.background_white};
 `;

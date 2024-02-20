@@ -1,15 +1,20 @@
 import styled from "styled-components";
 import { theme } from "../../../../../theme/index";
 import { FaMousePointer, FaExchangeAlt, FaCar } from "react-icons/fa";
+import { Md360 } from "react-icons/md";
 import { useState, useEffect } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import HeroItem from "./HeroItem";
 
 export default function Hero() {
   const messagesData = [
-    { icon: <FaCar />, label: "rechercher des vehicules" },
-    { icon: <FaMousePointer />, label: "sélectionner deux véhicules" },
-    { icon: <FaExchangeAlt />, label: "comparer les véhicules" },
+    { icon: <FaCar />, label: "Rechercher le véhicule de votre choix" },
+    { icon: <Md360 />, label: "Vue à 360° des véhicules" },
+    { icon: <FaMousePointer />, label: "Sélectionner deux véhicules" },
+    {
+      icon: <FaExchangeAlt />,
+      label: "Comparer",
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -43,7 +48,6 @@ const HeroStyled = styled.div`
   position: relative;
   background-color: ${theme.colors.white};
   overflow: hidden;
-  border: 1px solid black;
 
   .item-animated-enter {
     transform: translateY(100%);
