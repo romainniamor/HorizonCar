@@ -3,7 +3,7 @@ import Hero from "./hero/Hero";
 import { theme } from "../../../../theme/index";
 import MainForm from "./form/MainForm";
 import CarList from "./carList/CarList";
-import PanelBottom from "../mainContent/panels/PanelBottom";
+import PanelBottom from "./panels/panelBottom/PanelBottom";
 import { useContext } from "react";
 import MainContext from "../../../../context/MainContext";
 

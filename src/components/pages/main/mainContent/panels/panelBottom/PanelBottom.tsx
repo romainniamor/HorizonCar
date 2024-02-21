@@ -1,10 +1,19 @@
 import styled from "styled-components";
-import { theme } from "../../../../../theme/index";
+import { theme } from "../../../../../../theme/index";
+import PanelTab from "./PanelTab";
+import PanelContent from "./PanelContent";
+import { useState } from "react";
 
 type Props = {};
 
 export default function PanelBottom({}: Props) {
-  return <PanelBottomStyled></PanelBottomStyled>;
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  return (
+    <PanelBottomStyled>
+      <PanelTab />
+      {!isCollapsed && <PanelContent />}
+    </PanelBottomStyled>
+  );
 }
 
 const PanelBottomStyled = styled.div`
@@ -14,7 +23,6 @@ const PanelBottomStyled = styled.div`
   right: 50%;
   transform: translateX(50%);
   width: 500px;
-  height: 150px;
   /* background-color: yellow; */
   border-top-right-radius: ${theme.borderRadius.round};
   border-top-left-radius: ${theme.borderRadius.round};
