@@ -4,19 +4,20 @@ import { theme } from "../../../../theme/index";
 import MainForm from "./form/MainForm";
 import CarList from "./carList/CarList";
 import PanelBottom from "../mainContent/panels/PanelBottom";
-import { useState } from "react";
+import { useContext } from "react";
+import MainContext from "../../../../context/MainContext";
 
 type Props = {};
 
 export default function MainContent({}: Props) {
-  const [carIsSelected, setCarIsSelected] = useState(true);
+  const { isCarSelect } = useContext(MainContext);
 
   return (
     <MainContentStyled>
       <Hero />
       <MainForm />
       <CarList />
-      {carIsSelected && <PanelBottom />}
+      {isCarSelect && <PanelBottom />}
     </MainContentStyled>
   );
 }

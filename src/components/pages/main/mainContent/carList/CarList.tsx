@@ -4,14 +4,20 @@ import { FAKEPARK } from "../../../../../fakeData/fakePark";
 import PrimaryButton from "../../../../reusable/buttons/PrimaryButton";
 import Car from "./Car";
 import ToggleButton from "../../../../reusable/buttons/ToggleButton";
+import { useContext } from "react";
+import MainContext from "../../../../../context/MainContext";
 
 type Props = {};
 
 export default function CarList({}: Props) {
   //state
   const [cars] = useState(FAKEPARK);
+  const { isCarSelect, setIsCarSelect } = useContext(MainContext);
 
   //comportement
+  const displayPanelBottom = () => {
+    setIsCarSelect(!isCarSelect);
+  };
 
   //affichage
   return (
@@ -19,7 +25,10 @@ export default function CarList({}: Props) {
       {cars.map((car) => {
         return (
           <Car {...car} key={car.id}>
-            <ToggleButton isChecked={true} onClick={() => {}} />
+            <ToggleButton
+              isChecked={isCarSelect}
+              onClick={displayPanelBottom}
+            />
 
             <PrimaryButton label="Voir cette voiture" onClick={() => {}} />
           </Car>

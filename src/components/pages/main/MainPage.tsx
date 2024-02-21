@@ -2,13 +2,24 @@ import styled from "styled-components";
 import { theme } from "../../../theme/index";
 import NavBar from "./navBar/NavBar";
 import MainContent from "./mainContent/MainContent";
+import MainContext from "../../../context/MainContext";
+import { useState } from "react";
 
 export default function MainPage() {
+  const [isCarSelect, setIsCarSelect] = useState(true);
+
+  const mainContextValue = {
+    isCarSelect,
+    setIsCarSelect,
+  };
+
   return (
-    <MainPageStyled>
-      <NavBar />
-      <MainContent />
-    </MainPageStyled>
+    <MainContext.Provider value={mainContextValue}>
+      <MainPageStyled>
+        <NavBar />
+        <MainContent />
+      </MainPageStyled>
+    </MainContext.Provider>
   );
 }
 
