@@ -4,16 +4,19 @@ import { theme } from "../../../../theme/index";
 import MainForm from "./form/MainForm";
 import CarList from "./carList/CarList";
 import PanelBottom from "../mainContent/panels/PanelBottom";
+import { useState } from "react";
 
 type Props = {};
 
 export default function MainContent({}: Props) {
+  const [carIsSelected, setCarIsSelected] = useState(true);
+
   return (
     <MainContentStyled>
       <Hero />
       <MainForm />
       <CarList />
-      <PanelBottom />
+      {carIsSelected && <PanelBottom />}
     </MainContentStyled>
   );
 }
