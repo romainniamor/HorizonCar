@@ -7,11 +7,10 @@ import { useState } from "react";
 type Props = {};
 
 export default function PanelBottom({}: Props) {
-  const [isCollapsed, setIsCollapsed] = useState(false);
   return (
     <PanelBottomStyled>
       <PanelTab />
-      {!isCollapsed && <PanelContent />}
+      <PanelContent />
     </PanelBottomStyled>
   );
 }

@@ -20,7 +20,7 @@ export default function TabButton({ icon, label, onClick }: Props) {
 const TabButtonStyled = styled.button`
   display: flex;
   align-items: center;
-  gap: ${theme.spacing.xxs};
+  gap: ${theme.spacing.xs};
   border: none;
   cursor: pointer;
   font-size: ${theme.fonts.P1};
@@ -30,9 +30,9 @@ const TabButtonStyled = styled.button`
   background-color: transparent;
 
   .icon {
-    font-size: ${theme.fonts.P3};
+    font-size: ${theme.fonts.P2};
     color: ${theme.colors.secondary};
-    font-weight: ${theme.weights.bold};
+    font-weight: ${theme.weights.semiBold};
     display: flex;
     justify-content: center;
     align-items: center;

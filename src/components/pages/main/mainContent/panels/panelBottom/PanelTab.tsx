@@ -1,15 +1,23 @@
 import styled from "styled-components";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { FaChevronCircleDown, FaChevronCircleUp } from "react-icons/fa";
+
+import { useState } from "react";
 
 import TabButton from "./TabButton";
 
 export default function PanelTab() {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
   return (
     <PanelTabStyled>
       <TabButton
-        onClick={() => console.log("clicked")}
-        label={"Choisissez deux voitures à comparer"}
-        icon={<FiChevronDown />}
+        onClick={() => setIsCollapsed(!isCollapsed)}
+        label={
+          isCollapsed
+            ? "Choisissez deux voitures à comparer"
+            : "Afficher pour comparer: voitures selectionnées"
+        }
+        icon={isCollapsed ? <FaChevronCircleDown /> : <FaChevronCircleUp />}
       />
     </PanelTabStyled>
   );
