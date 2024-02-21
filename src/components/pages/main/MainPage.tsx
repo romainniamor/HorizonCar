@@ -14,7 +14,7 @@ export default function MainPage() {
 
 const MainPageStyled = styled.div`
   width: 100vw;
-  height: auto;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

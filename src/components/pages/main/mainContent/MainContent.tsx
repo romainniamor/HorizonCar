@@ -12,6 +12,7 @@ export default function MainContent({}: Props) {
       <Hero />
       <MainForm />
       <CarList />
+      <div className="panel-bottom">toddggle</div>
     </MainContentStyled>
   );
 }
@@ -24,6 +25,19 @@ const MainContentStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  min-height: calc(100vh - 50px);
-  height: auto;
+
+  .panel-bottom {
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 500px;
+    height: 150px;
+    background-color: yellow;
+    border-top-right-radius: ${theme.borderRadius.round};
+    border-top-left-radius: ${theme.borderRadius.round};
+    /* background-color: ${theme.colors.white}; */
+    padding: 10px;
+  }
 `;

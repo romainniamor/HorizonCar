@@ -1,18 +1,15 @@
 import styled from "styled-components";
-import { theme } from "../../../../../theme/index";
 import { useState } from "react";
 import { FAKEPARK } from "../../../../../fakeData/fakePark";
-
 import PrimaryButton from "../../../../reusable/buttons/PrimaryButton";
 import Car from "./Car";
-
 import ToggleButton from "../../../../reusable/buttons/ToggleButton";
 
 type Props = {};
 
 export default function CarList({}: Props) {
   //state
-  const [cars, setCars] = useState(FAKEPARK);
+  const [cars] = useState(FAKEPARK);
 
   //comportement
 
@@ -23,6 +20,7 @@ export default function CarList({}: Props) {
         return (
           <Car {...car} key={car.id}>
             <ToggleButton isChecked={true} onClick={() => {}} />
+
             <PrimaryButton label="Voir cette voiture" onClick={() => {}} />
           </Car>
         );
