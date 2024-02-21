@@ -23,9 +23,9 @@ const PanelBottomStyled = styled.div`
   right: 50%;
   transform: translateX(50%);
   width: 500px;
-  /* background-color: yellow; */
+  background-color: yellow;
   border-top-right-radius: ${theme.borderRadius.round};
   border-top-left-radius: ${theme.borderRadius.round};
-  background-color: ${theme.colors.white};
-  padding: 10px;
+  /* background-color: ${theme.colors.white}; */
+  overflow: hidden;
 `;

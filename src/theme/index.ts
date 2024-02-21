@@ -37,7 +37,7 @@ const fonts = {
   xs: "10px",
   S: "13px",
   P0: "14px",
-  P1: "18px",
+  P1: "16px",
   P2: "20px",
   P3: "22px",
   P4: "32px",
