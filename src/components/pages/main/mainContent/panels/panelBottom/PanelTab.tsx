@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { FaChevronCircleDown, FaChevronCircleUp } from "react-icons/fa";
-
-import { useState } from "react";
+import { useContext } from "react";
+import MainContext from "../../../../../../context/MainContext";
 
 import TabButton from "./TabButton";
 
 export default function PanelTab() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const { isCollapsed, setIsCollapsed } = useContext(MainContext);
 
   return (
     <PanelTabStyled>
@@ -25,7 +25,7 @@ export default function PanelTab() {
 
 const PanelTabStyled = styled.div`
   width: 100%;
-  border: 2px solid red;
+
   display: flex;
   justify-content: center;
   align-items: center;

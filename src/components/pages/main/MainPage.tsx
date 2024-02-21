@@ -7,10 +7,13 @@ import { useState } from "react";
 
 export default function MainPage() {
   const [isCarSelect, setIsCarSelect] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const mainContextValue = {
     isCarSelect,
     setIsCarSelect,
+    isCollapsed,
+    setIsCollapsed,
   };
 
   return (

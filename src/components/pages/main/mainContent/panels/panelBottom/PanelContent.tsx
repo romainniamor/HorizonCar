@@ -7,6 +7,6 @@ export default function PanelContent() {
 const PanelContentStyled = styled.div`
   height: 130px;
   width: 100%;
-  border: 2px solid blue;
+
   padding: 10px;
 `;
