@@ -1,16 +1,31 @@
 import styled from "styled-components";
 import PrimaryButton from "../../../../../reusable/buttons/PrimaryButton";
+import DeleteButton from "../../../../../reusable/buttons/DeleteButton";
+import { theme } from "../../../../../../theme/index";
 
 export default function PanelContent() {
   return (
     <PanelContentStyled>
-      <div className="delete-buttons"></div>
+      <div className="delete-buttons">
+        <DeleteButton
+          label={"Peugeot 208"}
+          onClick={() => {
+            alert("suppression de l element");
+          }}
+        />
+        <DeleteButton
+          label={"Renault Clio"}
+          onClick={() => {
+            alert("suppression element");
+          }}
+        />
+      </div>
       <div className="right-panel-button">
         <div className="button-box">
           <PrimaryButton
             label="Comparer les voitures"
             onClick={() => {
-              alert("comarer les voitures");
+              alert("ouverture du right panel");
             }}
           />
         </div>
@@ -20,21 +35,22 @@ export default function PanelContent() {
 }
 
 const PanelContentStyled = styled.div`
-  height: 130px;
   width: 100%;
   display: grid;
   grid-template-rows: repeat(2, 1fr);
-  padding: 10px;
+  grid-row-gap: 10px;
+  padding: 0 10px 10px 10px;
 
   .delete-buttons {
-    background-color: red;
+    /* background-color: red; */
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: ${theme.spacing.xs};
   }
 
   .right-panel-button {
-    background-color: green;
+    /* background-color: green; */
     display: flex;
     justify-content: center;
     align-items: center;

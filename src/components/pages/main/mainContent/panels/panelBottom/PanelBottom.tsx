@@ -5,9 +5,7 @@ import PanelContent from "./PanelContent";
 import { useContext } from "react";
 import MainContext from "../../../../../../context/MainContext";
 
-type Props = {};
-
-export default function PanelBottom({}: Props) {
+export default function PanelBottom() {
   const { isCollapsed } = useContext(MainContext);
   return (
     <PanelBottomStyled>
