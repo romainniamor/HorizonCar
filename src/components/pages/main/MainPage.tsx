@@ -6,31 +6,37 @@ import MainContext from "../../../context/MainContext";
 import { useState } from "react";
 
 export default function MainPage() {
-  const [isCarSelected, setIsCarSelected] = useState(true);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [carsSelected, setCarsSelected] = useState([]);
-
-  const handleAddCartoSelection = (car) => {
-    if (carsSelected.length < 2) {
-      setCarsSelected([...carsSelected, car]);
-      setIsCarSelected(!isCarSelected);
-      setIsCollapsed(false);
-    }
-  };
 
   const handleDeleteCarToSelection = (id) => {
     setCarsSelected([...carsSelected].filter((car) => car.id !== id));
   };
 
+  const handleAddCartoSelection = (car) => {
+    if (carsSelected.length < 2) {
+      if (!carsSelected.find((carSelected) => carSelected.id === car.id)) {
+        setCarsSelected([...carsSelected, car]);
+        setIsCollapsed(false);
+      }
+    }
+    if (carsSelected.find((carSelected) => carSelected.id === car.id)) {
+      handleDeleteCarToSelection(car.id);
+    }
+  };
+
+  const isCarSelected = (id: string): boolean => {
+    return carsSelected.find((car) => car.id === id) !== undefined;
+  };
+
   const mainContextValue = {
-    isCarSelected,
-    setIsCarSelected,
     isCollapsed,
     setIsCollapsed,
     carsSelected,
     setCarsSelected,
     handleAddCartoSelection,
     handleDeleteCarToSelection,
+    isCarSelected,
   };
 
   return (

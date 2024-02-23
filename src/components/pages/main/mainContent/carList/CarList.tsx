@@ -12,7 +12,7 @@ type Props = {};
 export default function CarList({}: Props) {
   //state
   const [cars] = useState(FAKEPARK);
-  const { isCarSelected, handleAddCartoSelection } = useContext(MainContext);
+  const { handleAddCartoSelection, isCarSelected } = useContext(MainContext);
 
   //comportement
 
@@ -23,7 +23,7 @@ export default function CarList({}: Props) {
         return (
           <Car {...car} key={car.id}>
             <ToggleButton
-              isChecked={!isCarSelected}
+              isChecked={isCarSelected(car.id)}
               onClick={() => handleAddCartoSelection(car)}
             />
             <PrimaryButton label="Voir cette voiture" onClick={() => {}} />
