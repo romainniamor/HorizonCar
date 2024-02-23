@@ -30,7 +30,7 @@ const NavIconStyled = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 15px;
+  padding: 15px;
   cursor: not-allowed;
 
   &:hover {

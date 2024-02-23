@@ -3,15 +3,21 @@ import Hero from "./hero/Hero";
 import { theme } from "../../../../theme/index";
 import MainForm from "./form/MainForm";
 import CarList from "./carList/CarList";
+import PanelBottom from "./panels/panelBottom/PanelBottom";
+import { useContext } from "react";
+import MainContext from "../../../../context/MainContext";
 
 type Props = {};
 
 export default function MainContent({}: Props) {
+  const { isCarSelect } = useContext(MainContext);
+
   return (
     <MainContentStyled>
       <Hero />
       <MainForm />
       <CarList />
+      {isCarSelect && <PanelBottom />}
     </MainContentStyled>
   );
 }
@@ -24,6 +30,4 @@ const MainContentStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  min-height: calc(100vh - 50px);
-  height: auto;
 `;

@@ -25,12 +25,11 @@ const PrimaryButtonStyled = styled.button`
   justify-content: center;
   color: ${theme.colors.white};
   font-family: ${theme.fontFamily.normal};
-  font-weight: ${theme.weights.semiBold};
   border-radius: ${theme.borderRadius.round};
   width: 100%;
   background: ${theme.colors.primary};
   font-size: ${theme.fonts.sm};
-  font-weight: ${theme.weights.bold};
+  font-weight: ${theme.weights.semiBold};
   padding: 15px 30px;
   line-height: 1;
 
