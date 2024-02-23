@@ -6,17 +6,16 @@ import { useContext } from "react";
 import MainContext from "../../../../../../context/MainContext";
 
 export default function PanelContent() {
-  const { carsSelected } = useContext(MainContext);
+  const { carsSelected, handleDeleteCarToSelection } = useContext(MainContext);
 
   return (
     <PanelContentStyled>
       <div className="delete-buttons">
         {carsSelected.map((car) => (
           <DeleteButton
+            key={car.id}
             label={car.modele}
-            onClick={() => {
-              alert("suppression element");
-            }}
+            onClick={() => handleDeleteCarToSelection(car.id)}
           />
         ))}
       </div>

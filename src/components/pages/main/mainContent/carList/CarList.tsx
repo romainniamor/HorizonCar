@@ -12,23 +12,9 @@ type Props = {};
 export default function CarList({}: Props) {
   //state
   const [cars] = useState(FAKEPARK);
-  const {
-    setIsCollapsed,
-    isCarSelected,
-    setIsCarSelected,
-    carsSelected,
-    setCarsSelected,
-  } = useContext(MainContext);
+  const { isCarSelected, handleAddCartoSelection } = useContext(MainContext);
 
   //comportement
-
-  const handleAddCartoSelection = (car) => {
-    if (carsSelected.length < 2) {
-      setCarsSelected([...carsSelected, car]);
-      setIsCarSelected(!isCarSelected);
-      setIsCollapsed(false);
-    }
-  };
 
   //affichage
   return (

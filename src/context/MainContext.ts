@@ -7,4 +7,5 @@ export default createContext({
   setIsCollapsed: () => {},
   carsSelected: [],
   setCarsSelected: () => {},
+  handleAddCartoSelection: () => {},
 });

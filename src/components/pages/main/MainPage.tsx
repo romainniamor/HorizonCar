@@ -10,6 +10,18 @@ export default function MainPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [carsSelected, setCarsSelected] = useState([]);
 
+  const handleAddCartoSelection = (car) => {
+    if (carsSelected.length < 2) {
+      setCarsSelected([...carsSelected, car]);
+      setIsCarSelected(!isCarSelected);
+      setIsCollapsed(false);
+    }
+  };
+
+  const handleDeleteCarToSelection = (id) => {
+    setCarsSelected([...carsSelected].filter((car) => car.id !== id));
+  };
+
   const mainContextValue = {
     isCarSelected,
     setIsCarSelected,
@@ -17,6 +29,8 @@ export default function MainPage() {
     setIsCollapsed,
     carsSelected,
     setCarsSelected,
+    handleAddCartoSelection,
+    handleDeleteCarToSelection,
   };
 
   return (
