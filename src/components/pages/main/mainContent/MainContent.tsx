@@ -6,18 +6,20 @@ import CarList from "./carList/CarList";
 import PanelBottom from "./panels/panelBottom/PanelBottom";
 import { useContext } from "react";
 import MainContext from "../../../../context/MainContext";
+import PanelRight from "./panels/panelRight/PanelRight";
 
 type Props = {};
 
 export default function MainContent({}: Props) {
-  const { carsSelected } = useContext(MainContext);
+  const { carsSelected, isPanelRightVisible } = useContext(MainContext);
 
   return (
     <MainContentStyled>
       <Hero />
       <MainForm />
       <CarList />
-      {carsSelected.length > 0 && <PanelBottom />}
+      {carsSelected.length > 0 && !isPanelRightVisible && <PanelBottom />}
+      {isPanelRightVisible && <PanelRight />}
     </MainContentStyled>
   );
 }
@@ -30,4 +32,5 @@ const MainContentStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  position: relative;
 `;

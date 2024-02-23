@@ -8,6 +8,7 @@ import { useState } from "react";
 export default function MainPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [carsSelected, setCarsSelected] = useState([]);
+  const [isPanelRightVisible, setIsPanelRightVisible] = useState(false);
 
   const handleDeleteCarToSelection = (id) => {
     setCarsSelected([...carsSelected].filter((car) => car.id !== id));
@@ -29,6 +30,10 @@ export default function MainPage() {
     return carsSelected.find((car) => car.id === id) !== undefined;
   };
 
+  const handleRightPanel = () => {
+    setIsPanelRightVisible(!isPanelRightVisible);
+  };
+
   const mainContextValue = {
     isCollapsed,
     setIsCollapsed,
@@ -37,6 +42,9 @@ export default function MainPage() {
     handleAddCartoSelection,
     handleDeleteCarToSelection,
     isCarSelected,
+    isPanelRightVisible,
+    setIsPanelRightVisible,
+    handleRightPanel,
   };
 
   return (

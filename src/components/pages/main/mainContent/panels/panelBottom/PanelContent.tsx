@@ -6,7 +6,8 @@ import { useContext } from "react";
 import MainContext from "../../../../../../context/MainContext";
 
 export default function PanelContent() {
-  const { carsSelected, handleDeleteCarToSelection } = useContext(MainContext);
+  const { carsSelected, handleDeleteCarToSelection, handleRightPanel } =
+    useContext(MainContext);
 
   return (
     <PanelContentStyled>
@@ -24,9 +25,7 @@ export default function PanelContent() {
           <PrimaryButton
             className={carsSelected.length < 2 ? "disabled" : ""}
             label="Comparer les voitures"
-            onClick={() => {
-              alert("ouverture du right panel");
-            }}
+            onClick={handleRightPanel}
           />
         </div>
       </div>
