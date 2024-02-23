@@ -10,14 +10,14 @@ import MainContext from "../../../../context/MainContext";
 type Props = {};
 
 export default function MainContent({}: Props) {
-  const { isCarSelect } = useContext(MainContext);
+  const { carsSelected } = useContext(MainContext);
 
   return (
     <MainContentStyled>
       <Hero />
       <MainForm />
       <CarList />
-      {isCarSelect && <PanelBottom />}
+      {carsSelected.length > 0 && <PanelBottom />}
     </MainContentStyled>
   );
 }

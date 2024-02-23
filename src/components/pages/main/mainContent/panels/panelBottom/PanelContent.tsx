@@ -2,23 +2,23 @@ import styled from "styled-components";
 import PrimaryButton from "../../../../../reusable/buttons/PrimaryButton";
 import DeleteButton from "../../../../../reusable/buttons/DeleteButton";
 import { theme } from "../../../../../../theme/index";
+import { useContext } from "react";
+import MainContext from "../../../../../../context/MainContext";
 
 export default function PanelContent() {
+  const { carsSelected } = useContext(MainContext);
+
   return (
     <PanelContentStyled>
       <div className="delete-buttons">
-        <DeleteButton
-          label={"Peugeot 208"}
-          onClick={() => {
-            alert("suppression de l element");
-          }}
-        />
-        <DeleteButton
-          label={"Renault Clio"}
-          onClick={() => {
-            alert("suppression element");
-          }}
-        />
+        {carsSelected.map((car) => (
+          <DeleteButton
+            label={car.modele}
+            onClick={() => {
+              alert("suppression element");
+            }}
+          />
+        ))}
       </div>
       <div className="right-panel-button">
         <div className="button-box">

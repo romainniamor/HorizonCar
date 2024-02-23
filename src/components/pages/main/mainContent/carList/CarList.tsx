@@ -12,11 +12,22 @@ type Props = {};
 export default function CarList({}: Props) {
   //state
   const [cars] = useState(FAKEPARK);
-  const { isCarSelect, setIsCarSelect } = useContext(MainContext);
+  const {
+    setIsCollapsed,
+    isCarSelected,
+    setIsCarSelected,
+    carsSelected,
+    setCarsSelected,
+  } = useContext(MainContext);
 
   //comportement
-  const displayPanelBottom = () => {
-    setIsCarSelect(!isCarSelect);
+
+  const handleAddCartoSelection = (car) => {
+    if (carsSelected.length < 2) {
+      setCarsSelected([...carsSelected, car]);
+      setIsCarSelected(!isCarSelected);
+      setIsCollapsed(false);
+    }
   };
 
   //affichage
@@ -26,10 +37,9 @@ export default function CarList({}: Props) {
         return (
           <Car {...car} key={car.id}>
             <ToggleButton
-              isChecked={isCarSelect}
-              onClick={displayPanelBottom}
+              isChecked={!isCarSelected}
+              onClick={() => handleAddCartoSelection(car)}
             />
-
             <PrimaryButton label="Voir cette voiture" onClick={() => {}} />
           </Car>
         );
