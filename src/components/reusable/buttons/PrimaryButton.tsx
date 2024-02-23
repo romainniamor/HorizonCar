@@ -6,11 +6,17 @@ type ButtonProps = {
   label: string;
   icon?: React.ReactElement;
   onClick?: () => void;
+  className?: string;
 };
 
-export default function PrimaryButton({ label, icon, onClick }: ButtonProps) {
+export default function PrimaryButton({
+  label,
+  icon,
+  onClick,
+  className,
+}: ButtonProps) {
   return (
-    <PrimaryButtonStyled onClick={onClick}>
+    <PrimaryButtonStyled className={className} onClick={onClick}>
       <span className="label">{label}</span>
       <div className="icon">{icon && icon}</div>
     </PrimaryButtonStyled>
@@ -45,5 +51,10 @@ const PrimaryButtonStyled = styled.button`
   &:active {
     background: ${theme.colors.primary};
     color: ${theme.colors.white};
+  }
+
+  .disabled {
+    cursor: none;
+    background-color: yellow;
   }
 `;

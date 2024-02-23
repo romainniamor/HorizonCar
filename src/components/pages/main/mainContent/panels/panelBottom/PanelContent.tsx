@@ -22,6 +22,7 @@ export default function PanelContent() {
       <div className="right-panel-button">
         <div className="button-box">
           <PrimaryButton
+            className={carsSelected.length < 2 ? "disabled" : ""}
             label="Comparer les voitures"
             onClick={() => {
               alert("ouverture du right panel");
@@ -56,5 +57,10 @@ const PanelContentStyled = styled.div`
     .button-box {
       width: 60%;
     }
+  }
+
+  .disabled {
+    pointer-events: none;
+    opacity: 0.5;
   }
 `;
