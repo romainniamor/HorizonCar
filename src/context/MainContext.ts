@@ -7,7 +7,7 @@ export default createContext({
   setCarsSelected: () => {},
   handleAddCartoSelection: () => {},
   isCarSelected: () => {},
-  issPanelRightVisible: false,
+  isPanelRightVisible: false,
   setIsPanelRightVisible: () => {},
   handleRightPanel: () => {},
 });

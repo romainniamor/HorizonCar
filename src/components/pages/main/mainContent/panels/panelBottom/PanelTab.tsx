@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { FaChevronCircleDown, FaChevronCircleUp } from "react-icons/fa";
 import { useContext } from "react";
 import MainContext from "../../../../../../context/MainContext";
+import { BiSolidChevronDown, BiSolidChevronUp } from "react-icons/bi";
 
 import TabButton from "./TabButton";
 
@@ -17,7 +18,7 @@ export default function PanelTab() {
             ? `Afficher pour comparer: voitures selectionnées ${carsSelected.length}/2 `
             : "Choisissez deux voitures à comparer"
         }
-        icon={isCollapsed ? <FaChevronCircleUp /> : <FaChevronCircleDown />}
+        icon={isCollapsed ? <BiSolidChevronUp /> : <BiSolidChevronDown />}
       />
     </PanelTabStyled>
   );
