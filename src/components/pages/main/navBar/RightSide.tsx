@@ -27,16 +27,16 @@ export default function RightSide() {
       altIcon: <FaHeart />,
     },
     {
-      icon: <FaRegBell />,
-      altIcon: <FaBell />,
+      icon: <FaBell />,
+      altIcon: <FaRegBell />,
     },
     {
       icon: <MdOutlineShoppingCart />,
       altIcon: <MdOutlineShoppingCart />,
     },
     {
-      icon: <FaRegUser />,
-      altIcon: <FaUserAlt />,
+      icon: <FaUserAlt />,
+      altIcon: <FaRegUser />,
     },
   ];
 

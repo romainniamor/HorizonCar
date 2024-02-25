@@ -74,14 +74,12 @@ const PanelRightStyled = styled.div`
   .panel {
     width: 500px;
     min-width: 350px;
-
     position: fixed;
     z-index: 10;
     background: ${theme.colors.white};
     right: 0;
     top: 0;
     bottom: 0;
-
     display: flex;
     flex-direction: column;
     z-index: 100;
@@ -92,22 +90,19 @@ const PanelRightStyled = styled.div`
       overflow-y: scroll;
       grid-template-rows: 30px 1fr 70px;
       grid-row-gap: 10px;
-      padding: 15px;
-      border: 4px solid orange;
+      padding: 15px 20px;
       .top {
         display: flex;
         gap: 10px;
-        border: 1px solid blue;
         .section-title {
           width: 100%;
           display: flex;
           align-items: center;
-          gap: 10px;
-          background: green;
+          gap: 15px;
+
           .car-modele {
             width: 50%;
-            background: pink;
-            font-weight: ${theme.weights.semiBold};
+            font-weight: ${theme.weights.bold};
             font-size: ${theme.fonts.P1};
             color: ${theme.colors.secondary};
             text-transform: capitalize;
@@ -118,17 +113,15 @@ const PanelRightStyled = styled.div`
       .header {
         display: flex;
         flex-direction: column;
-        border: 1px solid red;
-        gap: 10px;
+        gap: 20px;
         height: 100%;
-        overflow-y: scroll; // Use overflow-y: auto for scroll functionality
+        overflow-y: scroll;
         width: 100%;
 
         img {
           width: 50%;
           height: auto;
           object-fit: cover;
-          border: 1px solid blue;
         }
 
         .section-info {
@@ -148,7 +141,7 @@ const PanelRightStyled = styled.div`
           .car-info {
             display: flex;
             width: 100%;
-            gap: 10px;
+            gap: 20px;
 
             .car-data {
               width: 50%;
@@ -168,12 +161,10 @@ const PanelRightStyled = styled.div`
     }
     .footer {
       display: flex;
-      border: 3px solid green;
-      gap: 10px;
+      gap: 20px;
       justify-content: center;
       align-items: center;
       padding: 10px 0;
-      border-top: 4px solid purple;
       padding: 10px 0;
     }
   }
