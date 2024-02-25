@@ -5,7 +5,7 @@ import { theme } from "../../../../theme/index";
 
 export default function NavBar() {
   return (
-    <NavBarStyled>
+    <NavBarStyled id="yourNavBarId">
       <Logo />
       <RightSide />
     </NavBarStyled>
