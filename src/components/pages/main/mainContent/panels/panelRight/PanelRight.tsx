@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../../../../../theme/index";
 import PrimaryButton from "../../../../../reusable/buttons/PrimaryButton";
 import PanelRightTitleTag from "./PanelRightTitleTag";
+import { getCarsInfos } from "./carsInfosConfig";
 
 import { useContext } from "react";
 import MainContext from "../../../../../../context/MainContext";
@@ -9,6 +10,9 @@ import MainContext from "../../../../../../context/MainContext";
 export default function PanelRight() {
   const { carsSelected, isPanelRightVisible, setIsPanelRightVisible } =
     useContext(MainContext);
+
+  const CARSINFOS = getCarsInfos(carsSelected);
+
   return (
     <PanelRightStyled>
       <div
@@ -22,76 +26,31 @@ export default function PanelRight() {
         <div className="comparison">
           <div className="top">
             <div className="section-title">
-              <span className="car-modele">{carsSelected[0].modele}</span>
-              <span className="car-modele">{carsSelected[1].modele}</span>
+              {carsSelected.map((car) => (
+                <span className="car-modele">{car.modele}</span>
+              ))}
             </div>
           </div>
           <div className="header">
             <div className="section-image">
-              <img
-                src={carsSelected[0].imageSource}
-                alt={carsSelected[0].modele}
-              />
-              <img
-                src={carsSelected[1].imageSource}
-                alt={carsSelected[1].modele}
-              />
+              {carsSelected.map((car) => (
+                <img src={car.imageSource} alt={car.modele} />
+              ))}
             </div>
 
             <div className="section-info">
-              <div className="label">Version</div>
-              <div className="car-infos">
-                <span className="car-data">{carsSelected[0].description}</span>
-                <span className="car-data">{carsSelected[1].description}</span>
-              </div>
-            </div>
-            <div className="section-info">
-              <div className="label">Prix</div>
-              <div className="car-infos">
-                <span className="car-data">{carsSelected[0].price} €</span>
-                <span className="car-data">{carsSelected[1].price}€</span>
-              </div>
-            </div>
-            <div className="section-info">
-              <div className="label">Première Immatriculation</div>
-              <div className="car-infos">
-                <span className="car-data">{carsSelected[0].year}</span>
-                <span className="car-data">{carsSelected[1].year}</span>
-              </div>
-            </div>
-
-            <div className="section-info">
-              <div className="label">Kilométrage</div>
-              <div className="car-infos">
-                <span className="car-data">{carsSelected[0].kilometer} km</span>
-                <span className="car-data">{carsSelected[1].kilometer} km</span>
-              </div>
-            </div>
-            <div className="section-info">
-              <div className="label">Carburant</div>
-              <div className="car-infos">
-                <span className="car-data">{carsSelected[0].energy}</span>
-                <span className="car-data">{carsSelected[1].energy}</span>
-              </div>
-            </div>
-            <div className="section-info">
-              <div className="label">Catégorie</div>
-              <div className="car-infos">
-                <span className="car-data">{carsSelected[0].category}</span>
-                <span className="car-data">{carsSelected[1].category}</span>
-              </div>
-            </div>
-            <div className="section-info">
-              <div className="label">Transmission</div>
-              <div className="car-infos">
-                <span className="car-data">{carsSelected[0].gearbox}</span>
-                <span className="car-data">{carsSelected[1].gearbox}</span>
-              </div>
+              {CARSINFOS.map((info) => (
+                <div key={info.id} className="label">
+                  {info.label}
+                  {info.component}
+                </div>
+              ))}
             </div>
           </div>
           <div className="footer">
-            <PrimaryButton label="Voir la voiture" />
-            <PrimaryButton label="Voir la voiture" />
+            {carsSelected.map((car) => (
+              <PrimaryButton key={car.id} label="Voir la voiture" />
+            ))}
           </div>
         </div>
       </div>
@@ -176,12 +135,17 @@ const PanelRightStyled = styled.div`
           width: 100%;
           height: auto;
           margin: 10px 0;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
           .label {
             font-weight: ${theme.weights.semiBold};
             color: ${theme.colors.secondary};
             font-size: ${theme.fonts.P1};
+            text-transform: capitalize;
           }
-          .car-infos {
+
+          .car-info {
             display: flex;
             width: 100%;
             gap: 10px;
@@ -196,20 +160,21 @@ const PanelRightStyled = styled.div`
               color: ${theme.colors.dark};
               font-weight: ${theme.weights.regular};
               line-height: 1.5;
+              text-transform: capitalize;
             }
           }
         }
       }
-      .footer {
-        display: flex;
-        border: 3px solid green;
-        gap: 10px;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 0;
-        border-top: 4px solid purple;
-        padding: 10px 0;
-      }
+    }
+    .footer {
+      display: flex;
+      border: 3px solid green;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+      border-top: 4px solid purple;
+      padding: 10px 0;
     }
   }
 `;
