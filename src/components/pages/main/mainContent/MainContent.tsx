@@ -38,12 +38,11 @@ export default function MainContent({}: Props) {
 
 const MainContentStyled = styled.div`
   width: 100%;
-  min-height: calc(100vh -50px)
+  overflow-y: scroll;
+  height: calc(100% - 50px)
   max-width: 2400px;
-  padding: 0 15px;
   background-color: ${theme.colors.background_white};
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  position: relative;
+
 `;

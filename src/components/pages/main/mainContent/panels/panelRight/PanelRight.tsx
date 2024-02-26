@@ -3,15 +3,15 @@ import { theme } from "../../../../../../theme/index";
 import PrimaryButton from "../../../../../reusable/buttons/PrimaryButton";
 import PanelRightTitleTag from "./PanelRightTitleTag";
 import { getCarsInfos } from "./carsInfosConfig";
-
 import { useContext } from "react";
 import MainContext from "../../../../../../context/MainContext";
+import { slideIn } from "../../../../../../theme/animations";
 
 export default function PanelRight() {
   const { carsSelected, isPanelRightVisible, setIsPanelRightVisible } =
     useContext(MainContext);
 
-  const CARSINFOS = getCarsInfos(carsSelected);
+  const carsInfos = getCarsInfos(carsSelected);
 
   return (
     <PanelRightStyled>
@@ -19,6 +19,7 @@ export default function PanelRight() {
         className="overlay"
         onClick={() => setIsPanelRightVisible(!isPanelRightVisible)}
       ></div>
+
       <div className="panel">
         <PanelRightTitleTag
           onClick={() => setIsPanelRightVisible(!isPanelRightVisible)}
@@ -39,7 +40,7 @@ export default function PanelRight() {
             </div>
 
             <div className="section-info">
-              {CARSINFOS.map((info) => (
+              {carsInfos.map((info) => (
                 <div key={info.id} className="label">
                   {info.label}
                   {info.component}
@@ -59,34 +60,33 @@ export default function PanelRight() {
 }
 
 const PanelRightStyled = styled.div`
-  height: 100%;
   .overlay {
     width: 100vw;
     height: 100%;
-    background-color: ${theme.colors.dark};
+    background-color: rgba(26, 26, 26, 0.5);
     z-index: 5;
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
-    opacity: 0.3;
   }
 
   .panel {
     width: 500px;
     min-width: 350px;
+    top: 50px;
     position: fixed;
     z-index: 10;
     background: ${theme.colors.white};
     right: 0;
-    top: 0;
     bottom: 0;
+
     display: flex;
     flex-direction: column;
     z-index: 100;
+    animation: ${slideIn} 0.3s ease-in-out;
 
     .comparison {
       display: grid;
-      height: 100%;
       overflow-y: scroll;
       grid-template-rows: 30px 1fr 70px;
       grid-row-gap: 10px;
@@ -98,7 +98,7 @@ const PanelRightStyled = styled.div`
           width: 100%;
           display: flex;
           align-items: center;
-          gap: 15px;
+          gap: 20px;
 
           .car-modele {
             width: 50%;
@@ -137,7 +137,6 @@ const PanelRightStyled = styled.div`
             font-size: ${theme.fonts.P1};
             text-transform: capitalize;
           }
-
           .car-info {
             display: flex;
             width: 100%;

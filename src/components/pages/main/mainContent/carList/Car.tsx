@@ -38,7 +38,7 @@ export default function Car({
             <span className="info">
               {year} <GoDotFill />
               {energy} <GoDotFill />
-              {kilometer}
+              {kilometer} km
             </span>
             <p>{gearbox}</p>
           </div>

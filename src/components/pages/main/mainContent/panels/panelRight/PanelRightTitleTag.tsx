@@ -23,7 +23,6 @@ const PanelRightTitleStyled = styled.div`
   padding: 15px;
   font-size: ${theme.fonts.P1};
   border-bottom: 1px solid ${theme.colors.greyLight};
-  box-shadow: ${theme.shadows.subtle};
   font-weight: ${theme.weights.semiBold};
   display: flex;
   justify-content: center;

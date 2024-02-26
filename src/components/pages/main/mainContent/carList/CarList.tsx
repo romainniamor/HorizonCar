@@ -38,5 +38,5 @@ const CarListStyled = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
   width: 100%;
   grid-gap: 15px;
-  padding-bottom: 200px;
+  padding: 0 30px 170px 30px;
 `;
