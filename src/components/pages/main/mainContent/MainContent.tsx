@@ -10,6 +10,7 @@ import PanelRight from "./panels/panelRight/PanelRight";
 import { useEffect } from "react";
 import { useScrollBlock } from "../../../../utils/window";
 import ResultBar from "./ResultBar";
+import EmptyList from "./carList/EmptyList";
 
 type Props = {};
 
@@ -45,9 +46,13 @@ export default function MainContent({}: Props) {
         value={newFilter}
         onDelete={resetFilter}
       />
-      {formIsSubmited && cars && (
+      {formIsSubmited && cars.length && (
         <ResultBar onDelete={resetFilter} value={cars} />
       )}
+
+      {!cars.length && <EmptyList inputValue={newFilter} />}
+
+      {/* {!cars.length && <p>nous n'avons pas trouvé de vehicule</p>} */}
 
       <CarList />
       {carsSelected.length > 0 && !isPanelRightVisible && <PanelBottom />}
@@ -58,12 +63,9 @@ export default function MainContent({}: Props) {
 const MainContentStyled = styled.div`
   width: 100%;
   overflow-y: scroll;
-  height: calc(100% - 50px)
+  height: 100%;
   max-width: 2400px;
   background-color: ${theme.colors.background_white};
   display: flex;
   flex-direction: column;
-
-
-
 `;

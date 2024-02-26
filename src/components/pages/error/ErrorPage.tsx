@@ -46,7 +46,7 @@ const ErrorPageStyled = styled.div`
   display: flex;
   align-items: center;
   padding: 100px;
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.background_white};
 
   .content {
     display: flex;
@@ -57,7 +57,7 @@ const ErrorPageStyled = styled.div`
 
   .error-page-image {
     img {
-      width: 230px;
+      width: 280px;
     }
   }
 
@@ -76,7 +76,7 @@ const ErrorPageStyled = styled.div`
 
     .subtitle {
       color: ${theme.colors.primary};
-      font-size: ${theme.fonts.P3};
+      font-size: ${theme.fonts.P4};
       text-transform: capitalize;
       font-weight: ${theme.weights.medium};
     }

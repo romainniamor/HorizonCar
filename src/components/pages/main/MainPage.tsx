@@ -41,9 +41,7 @@ export default function MainPage() {
   const handleSubmit = (e) => {
     if (newFilter) {
       e.preventDefault();
-
       const copyCars = [...cars];
-      console.log("copyCars", copyCars);
       const updatedCars = copyCars.filter((car) =>
         car.modele.toLowerCase().includes(newFilter.toLowerCase())
       );

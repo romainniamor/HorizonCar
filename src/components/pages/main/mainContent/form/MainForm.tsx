@@ -57,9 +57,10 @@ const FormStyled = styled.form`
     border: 1px solid ${theme.colors.greyLight};
     background-color: ${theme.colors.white};
     width: 70%;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
-      border: 1.5px solid ${theme.colors.primary};
+      border: 1px solid ${theme.colors.primary};
     }
 
     input {
