@@ -13,6 +13,7 @@ export default function MainPage() {
   const [isPanelRightVisible, setIsPanelRightVisible] = useState(false);
   const [newFilter, setNewFilter] = useState("");
   const [formIsSubmited, setFormIsSubmited] = useState(false);
+  const [emptySelection, setEmptySelection] = useState(false);
 
   const handleDeleteCarToSelection = (id) => {
     setCarsSelected([...carsSelected].filter((car) => car.id !== id));
@@ -45,8 +46,16 @@ export default function MainPage() {
       const updatedCars = copyCars.filter((car) =>
         car.modele.toLowerCase().includes(newFilter.toLowerCase())
       );
-      setFormIsSubmited(true);
-      setCars(updatedCars);
+      console.log("updatedCars", updatedCars);
+      if (!updatedCars.length) {
+        setEmptySelection(true);
+        setFormIsSubmited(false);
+        setCars(FAKEPARK);
+      } else {
+        setEmptySelection(false);
+        setFormIsSubmited(true);
+        setCars(updatedCars);
+      }
     }
   };
 
@@ -79,6 +88,8 @@ export default function MainPage() {
     newFilter,
     setNewFilter,
     formIsSubmited,
+    emptySelection,
+    setEmptySelection,
   };
 
   return (

@@ -22,5 +22,8 @@ export default createContext({
   setIsPanelRightVisible: () => {},
   handleRightPanel: () => {},
 
+  emptySelection: false,
+  setEmptySelection: () => {},
+
   formIsSubmited: false,
 });

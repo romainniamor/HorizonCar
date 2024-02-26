@@ -10,7 +10,7 @@ import PanelRight from "./panels/panelRight/PanelRight";
 import { useEffect } from "react";
 import { useScrollBlock } from "../../../../utils/window";
 import ResultBar from "./ResultBar";
-import EmptyList from "./carList/EmptyList";
+import EmptyMessage from "./carList/EmptyMessage";
 
 type Props = {};
 
@@ -23,6 +23,7 @@ export default function MainContent({}: Props) {
     newFilter,
     resetFilter,
     formIsSubmited,
+    emptySelection,
     cars,
   } = useContext(MainContext);
 
@@ -50,9 +51,7 @@ export default function MainContent({}: Props) {
         <ResultBar onDelete={resetFilter} value={cars} />
       )}
 
-      {!cars.length && <EmptyList inputValue={newFilter} />}
-
-      {/* {!cars.length && <p>nous n'avons pas trouvé de vehicule</p>} */}
+      {emptySelection && <EmptyMessage inputValue={newFilter} />}
 
       <CarList />
       {carsSelected.length > 0 && !isPanelRightVisible && <PanelBottom />}
