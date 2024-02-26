@@ -2,11 +2,12 @@ import styled from "styled-components";
 import { FaChevronCircleDown, FaChevronCircleUp } from "react-icons/fa";
 import { useContext } from "react";
 import MainContext from "../../../../../../context/MainContext";
+import { BiSolidChevronDown, BiSolidChevronUp } from "react-icons/bi";
 
 import TabButton from "./TabButton";
 
 export default function PanelTab() {
-  const { isCollapsed, setIsCollapsed } = useContext(MainContext);
+  const { isCollapsed, setIsCollapsed, carsSelected } = useContext(MainContext);
 
   return (
     <PanelTabStyled>
@@ -14,10 +15,10 @@ export default function PanelTab() {
         onClick={() => setIsCollapsed(!isCollapsed)}
         label={
           isCollapsed
-            ? "Choisissez deux voitures à comparer"
-            : "Afficher pour comparer: voitures selectionnées"
+            ? `Afficher pour comparer: voitures selectionnées ${carsSelected.length}/2 `
+            : "Choisissez deux voitures à comparer"
         }
-        icon={isCollapsed ? <FaChevronCircleDown /> : <FaChevronCircleUp />}
+        icon={isCollapsed ? <BiSolidChevronUp /> : <BiSolidChevronDown />}
       />
     </PanelTabStyled>
   );

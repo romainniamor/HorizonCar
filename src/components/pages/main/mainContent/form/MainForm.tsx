@@ -23,6 +23,7 @@ const FormStyled = styled.form`
   width: 100%;
   display: flex;
   justify-content: center;
+  margin: 20px 0;
 
   .text-input {
     border-radius: ${theme.borderRadius.round};

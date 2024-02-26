@@ -28,25 +28,28 @@ export default function Hero() {
   }, []);
 
   return (
-    <TransitionGroup component={HeroStyled}>
-      <CSSTransition
-        timeout={3000}
-        classNames="item-animated"
-        key={currentIndex}
-      >
-        <HeroItem
-          label={messagesData[currentIndex].label}
-          icon={messagesData[currentIndex].icon}
-        />
-      </CSSTransition>
-    </TransitionGroup>
+    <div>
+      <TransitionGroup component={HeroStyled}>
+        <CSSTransition
+          timeout={3000}
+          classNames="item-animated"
+          key={currentIndex}
+        >
+          <HeroItem
+            label={messagesData[currentIndex].label}
+            icon={messagesData[currentIndex].icon}
+          />
+        </CSSTransition>
+      </TransitionGroup>
+    </div>
   );
 }
 
 const HeroStyled = styled.div`
   height: 50px;
-  position: relative;
+  width: 100%;
   background-color: ${theme.colors.white};
+  position: relative;
   overflow: hidden;
 
   .item-animated-enter {

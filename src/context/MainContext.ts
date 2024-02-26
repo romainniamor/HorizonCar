@@ -1,8 +1,13 @@
 import { createContext } from "react";
 
 export default createContext({
-  isCarSelect: false,
-  setIsCarSelect: () => {},
-  isCollapsed: false,
+  isCollapsed: true,
   setIsCollapsed: () => {},
+  carsSelected: [],
+  setCarsSelected: () => {},
+  handleAddCartoSelection: () => {},
+  isCarSelected: () => {},
+  isPanelRightVisible: false,
+  setIsPanelRightVisible: () => {},
+  handleRightPanel: () => {},
 });

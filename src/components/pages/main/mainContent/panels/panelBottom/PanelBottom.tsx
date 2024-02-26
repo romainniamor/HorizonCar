@@ -10,7 +10,7 @@ export default function PanelBottom() {
   return (
     <PanelBottomStyled>
       <PanelTab />
-      {isCollapsed && <PanelContent />}
+      {!isCollapsed && <PanelContent />}
     </PanelBottomStyled>
   );
 }

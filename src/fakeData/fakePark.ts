@@ -9,6 +9,7 @@ export const FAKEPARK = [
     energy: "diesel",
     kilometer: 99800,
     gearbox: "manuelle",
+    category: "monospace",
   },
   {
     id: "2",
@@ -20,6 +21,7 @@ export const FAKEPARK = [
     energy: "diesel",
     kilometer: 95328,
     gearbox: "manuelle",
+    category: "berline",
   },
   {
     id: "3",
@@ -31,6 +33,7 @@ export const FAKEPARK = [
     energy: "ethanol",
     kilometer: 122438,
     gearbox: "manuelle",
+    category: "SUV",
   },
   {
     id: "4",
@@ -42,6 +45,7 @@ export const FAKEPARK = [
     energy: "diesel",
     kilometer: 97777,
     gearbox: "manuelle",
+    category: "SUV",
   },
   {
     id: "5",
@@ -53,6 +57,7 @@ export const FAKEPARK = [
     energy: "essence",
     kilometer: 50234,
     gearbox: "manuelle",
+    category: "citadine",
   },
   {
     id: "6",
@@ -64,5 +69,6 @@ export const FAKEPARK = [
     energy: "diesel",
     kilometer: 18450,
     gearbox: "manuelle",
+    category: "SUV",
   },
 ];

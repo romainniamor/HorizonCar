@@ -12,12 +12,9 @@ type Props = {};
 export default function CarList({}: Props) {
   //state
   const [cars] = useState(FAKEPARK);
-  const { isCarSelect, setIsCarSelect } = useContext(MainContext);
+  const { handleAddCartoSelection, isCarSelected } = useContext(MainContext);
 
   //comportement
-  const displayPanelBottom = () => {
-    setIsCarSelect(!isCarSelect);
-  };
 
   //affichage
   return (
@@ -26,10 +23,9 @@ export default function CarList({}: Props) {
         return (
           <Car {...car} key={car.id}>
             <ToggleButton
-              isChecked={isCarSelect}
-              onClick={displayPanelBottom}
+              isChecked={isCarSelected(car.id)}
+              onClick={() => handleAddCartoSelection(car)}
             />
-
             <PrimaryButton label="Voir cette voiture" onClick={() => {}} />
           </Car>
         );
@@ -42,5 +38,5 @@ const CarListStyled = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
   width: 100%;
   grid-gap: 15px;
-  padding-bottom: 80px;
+  padding: 0 30px 170px 30px;
 `;

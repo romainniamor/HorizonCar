@@ -32,6 +32,7 @@ const DeleetButtonStyled = styled.button`
   gap: ${theme.spacing.xxs};
   background: none;
   min-width: max-content;
+  text-transform: capitalize;
 
   &:hover {
     border: 1px solid ${theme.colors.primaryLight};
