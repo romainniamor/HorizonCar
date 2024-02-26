@@ -27,11 +27,13 @@ export default function ErrorPage({}: Props) {
             On dirait que vous êtes dans une impasse. Remettez-vous sur la bonne
             voie !
           </p>
-          <PrimaryButton
-            label={"Revenir a l'accueil"}
-            onClick={handleClick}
-            icon={<FaChevronCircleRight />}
-          />
+          <div className="button-box">
+            <PrimaryButton
+              label={"Revenir a l'accueil"}
+              onClick={handleClick}
+              icon={<FaChevronCircleRight />}
+            />
+          </div>
         </div>
       </div>
     </ErrorPageStyled>
@@ -45,32 +47,48 @@ const ErrorPageStyled = styled.div`
   align-items: center;
   padding: 100px;
   background-color: ${theme.colors.white};
-  border: 4px solid blue;
 
   .content {
-    border: 3px solid green;
     display: flex;
-    gap: 48px;
+    gap: ${theme.spacing.lg};
     height: min-content;
     width: max-content;
   }
 
   .error-page-image {
-    border: 1px solid red;
     img {
       width: 230px;
     }
   }
 
   .error-page-content {
-    border: 1px solid red;
     width: 400px;
     display: flex;
     flex-direction: column;
     gap: ${theme.spacing.md};
-  }
+    padding: 0 10px;
 
-  h2 {
-    text-transform: uppercase;
+    .title {
+      color: ${theme.colors.primary};
+      font-size: ${theme.fonts.P6};
+      text-transform: capitalize;
+    }
+
+    .subtitle {
+      color: ${theme.colors.primary};
+      font-size: ${theme.fonts.P3};
+      text-transform: capitalize;
+      font-weight: ${theme.weights.medium};
+    }
+
+    .text {
+      color: ${theme.colors.dark};
+      font-size: ${theme.fonts.P0};
+    }
+
+    .button-box {
+      width: 70%;
+      margin-top: ${theme.spacing.md};
+    }
   }
 `;
