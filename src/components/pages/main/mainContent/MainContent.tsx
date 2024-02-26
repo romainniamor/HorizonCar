@@ -9,11 +9,23 @@ import MainContext from "../../../../context/MainContext";
 import PanelRight from "./panels/panelRight/PanelRight";
 import { useEffect } from "react";
 import { useScrollBlock } from "../../../../utils/window";
+import ResultBar from "./ResultBar";
+import EmptyMessage from "./carList/EmptyMessage";
 
 type Props = {};
 
 export default function MainContent({}: Props) {
-  const { carsSelected, isPanelRightVisible } = useContext(MainContext);
+  const {
+    carsSelected,
+    isPanelRightVisible,
+    handleSubmit,
+    handleChange,
+    newFilter,
+    resetFilter,
+    formIsSubmited,
+    emptySelection,
+    cars,
+  } = useContext(MainContext);
 
   const [blockScroll, allowScroll] = useScrollBlock();
 
@@ -29,7 +41,18 @@ export default function MainContent({}: Props) {
     <MainContentStyled>
       {isPanelRightVisible && <PanelRight />}
       <Hero />
-      <MainForm />
+      <MainForm
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+        value={newFilter}
+        onDelete={resetFilter}
+      />
+      {formIsSubmited && cars.length && (
+        <ResultBar onDelete={resetFilter} value={cars} />
+      )}
+
+      {emptySelection && <EmptyMessage inputValue={newFilter} />}
+
       <CarList />
       {carsSelected.length > 0 && !isPanelRightVisible && <PanelBottom />}
     </MainContentStyled>
@@ -39,10 +62,9 @@ export default function MainContent({}: Props) {
 const MainContentStyled = styled.div`
   width: 100%;
   overflow-y: scroll;
-  height: calc(100% - 50px)
+  height: 100%;
   max-width: 2400px;
   background-color: ${theme.colors.background_white};
   display: flex;
   flex-direction: column;
-
 `;

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { FAKEPARK } from "../../../../../fakeData/fakePark";
 import PrimaryButton from "../../../../reusable/buttons/PrimaryButton";
 import Car from "./Car";
 import ToggleButton from "../../../../reusable/buttons/ToggleButton";
@@ -11,10 +10,8 @@ type Props = {};
 
 export default function CarList({}: Props) {
   //state
-  const [cars] = useState(FAKEPARK);
-  const { handleAddCartoSelection, isCarSelected } = useContext(MainContext);
-
-  //comportement
+  const { handleAddCartoSelection, isCarSelected, cars } =
+    useContext(MainContext);
 
   //affichage
   return (
@@ -38,5 +35,5 @@ const CarListStyled = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
   width: 100%;
   grid-gap: 15px;
-  padding: 0 30px 170px 30px;
+  padding: 0px 30px 170px 30px;
 `;

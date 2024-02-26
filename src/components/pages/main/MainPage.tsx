@@ -4,11 +4,16 @@ import NavBar from "./navBar/NavBar";
 import MainContent from "./mainContent/MainContent";
 import MainContext from "../../../context/MainContext";
 import { useState } from "react";
+import { FAKEPARK } from "../../../fakeData/fakePark";
 
 export default function MainPage() {
+  const [cars, setCars] = useState(FAKEPARK);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [carsSelected, setCarsSelected] = useState([]);
   const [isPanelRightVisible, setIsPanelRightVisible] = useState(false);
+  const [newFilter, setNewFilter] = useState("");
+  const [formIsSubmited, setFormIsSubmited] = useState(false);
+  const [emptySelection, setEmptySelection] = useState(false);
 
   const handleDeleteCarToSelection = (id) => {
     setCarsSelected([...carsSelected].filter((car) => car.id !== id));
@@ -34,7 +39,39 @@ export default function MainPage() {
     setIsPanelRightVisible(!isPanelRightVisible);
   };
 
+  const handleSubmit = (e) => {
+    if (newFilter) {
+      e.preventDefault();
+      const copyCars = [...cars];
+      const updatedCars = copyCars.filter((car) =>
+        car.modele.toLowerCase().includes(newFilter.toLowerCase())
+      );
+      console.log("updatedCars", updatedCars);
+      if (!updatedCars.length) {
+        setEmptySelection(true);
+        setFormIsSubmited(false);
+        setCars(FAKEPARK);
+      } else {
+        setEmptySelection(false);
+        setFormIsSubmited(true);
+        setCars(updatedCars);
+      }
+    }
+  };
+
+  const handleChange = (e) => {
+    setNewFilter(e.target.value);
+  };
+
+  const resetFilter = () => {
+    setNewFilter("");
+    setFormIsSubmited(false);
+    setCars(FAKEPARK);
+  };
+
   const mainContextValue = {
+    cars,
+    setCars,
     isCollapsed,
     setIsCollapsed,
     carsSelected,
@@ -45,6 +82,14 @@ export default function MainPage() {
     isPanelRightVisible,
     setIsPanelRightVisible,
     handleRightPanel,
+    handleChange,
+    handleSubmit,
+    resetFilter,
+    newFilter,
+    setNewFilter,
+    formIsSubmited,
+    emptySelection,
+    setEmptySelection,
   };
 
   return (
