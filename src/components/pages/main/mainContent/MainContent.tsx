@@ -13,7 +13,14 @@ import { useScrollBlock } from "../../../../utils/window";
 type Props = {};
 
 export default function MainContent({}: Props) {
-  const { carsSelected, isPanelRightVisible } = useContext(MainContext);
+  const {
+    carsSelected,
+    isPanelRightVisible,
+    handleSubmit,
+    handleChange,
+    newFilter,
+    resetFilter,
+  } = useContext(MainContext);
 
   const [blockScroll, allowScroll] = useScrollBlock();
 
@@ -29,7 +36,12 @@ export default function MainContent({}: Props) {
     <MainContentStyled>
       {isPanelRightVisible && <PanelRight />}
       <Hero />
-      <MainForm />
+      <MainForm
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+        value={newFilter}
+        onDelete={resetFilter}
+      />
       <CarList />
       {carsSelected.length > 0 && !isPanelRightVisible && <PanelBottom />}
     </MainContentStyled>

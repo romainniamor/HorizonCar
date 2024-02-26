@@ -3,10 +3,11 @@ import { theme } from "../../../theme";
 
 type IconButtonProps = {
   icon: React.ReactNode;
+  onClick?: () => void;
 };
 
-export default function IconButton({ icon }: IconButtonProps) {
-  return <IconButtonStyled>{icon}</IconButtonStyled>;
+export default function IconButton({ icon, onClick }: IconButtonProps) {
+  return <IconButtonStyled onClick={onClick}>{icon}</IconButtonStyled>;
 }
 
 const IconButtonStyled = styled.div`

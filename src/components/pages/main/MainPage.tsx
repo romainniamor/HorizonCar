@@ -4,11 +4,14 @@ import NavBar from "./navBar/NavBar";
 import MainContent from "./mainContent/MainContent";
 import MainContext from "../../../context/MainContext";
 import { useState } from "react";
+import { FAKEPARK } from "../../../fakeData/fakePark";
 
 export default function MainPage() {
+  const [cars, setCars] = useState(FAKEPARK);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [carsSelected, setCarsSelected] = useState([]);
   const [isPanelRightVisible, setIsPanelRightVisible] = useState(false);
+  const [newFilter, setNewFilter] = useState("");
 
   const handleDeleteCarToSelection = (id) => {
     setCarsSelected([...carsSelected].filter((car) => car.id !== id));
@@ -34,7 +37,29 @@ export default function MainPage() {
     setIsPanelRightVisible(!isPanelRightVisible);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const copyCars = [...cars];
+    console.log("copyCars", copyCars);
+    const updatedCars = copyCars.filter((car) =>
+      car.modele.toLowerCase().includes(newFilter.toLowerCase())
+    );
+    setCars(updatedCars);
+  };
+
+  const handleChange = (e) => {
+    setNewFilter(e.target.value);
+  };
+
+  const resetFilter = () => {
+    setNewFilter("");
+    setCars(FAKEPARK);
+  };
+
   const mainContextValue = {
+    cars,
+    setCars,
     isCollapsed,
     setIsCollapsed,
     carsSelected,
@@ -45,6 +70,11 @@ export default function MainPage() {
     isPanelRightVisible,
     setIsPanelRightVisible,
     handleRightPanel,
+    handleChange,
+    handleSubmit,
+    resetFilter,
+    newFilter,
+    setNewFilter,
   };
 
   return (

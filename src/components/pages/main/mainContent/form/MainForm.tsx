@@ -34,7 +34,7 @@ export default function MainForm({
           </div>
         )}
 
-        <IconButton icon={<FiSearch />} />
+        <IconButton onClick={onSubmit} icon={<FiSearch />} />
       </div>
     </FormStyled>
   );
@@ -80,6 +80,7 @@ const FormStyled = styled.form`
       display: flex;
       color: ${theme.colors.secondary};
       font-size: ${theme.fonts.P2};
+      cursor: pointer;
     }
   }
 `;
