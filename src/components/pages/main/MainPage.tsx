@@ -12,6 +12,7 @@ export default function MainPage() {
   const [carsSelected, setCarsSelected] = useState([]);
   const [isPanelRightVisible, setIsPanelRightVisible] = useState(false);
   const [newFilter, setNewFilter] = useState("");
+  const [formIsSubmited, setFormIsSubmited] = useState(false);
 
   const handleDeleteCarToSelection = (id) => {
     setCarsSelected([...carsSelected].filter((car) => car.id !== id));
@@ -38,14 +39,17 @@ export default function MainPage() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if (newFilter) {
+      e.preventDefault();
 
-    const copyCars = [...cars];
-    console.log("copyCars", copyCars);
-    const updatedCars = copyCars.filter((car) =>
-      car.modele.toLowerCase().includes(newFilter.toLowerCase())
-    );
-    setCars(updatedCars);
+      const copyCars = [...cars];
+      console.log("copyCars", copyCars);
+      const updatedCars = copyCars.filter((car) =>
+        car.modele.toLowerCase().includes(newFilter.toLowerCase())
+      );
+      setFormIsSubmited(true);
+      setCars(updatedCars);
+    }
   };
 
   const handleChange = (e) => {
@@ -54,6 +58,7 @@ export default function MainPage() {
 
   const resetFilter = () => {
     setNewFilter("");
+    setFormIsSubmited(false);
     setCars(FAKEPARK);
   };
 
@@ -75,6 +80,7 @@ export default function MainPage() {
     resetFilter,
     newFilter,
     setNewFilter,
+    formIsSubmited,
   };
 
   return (

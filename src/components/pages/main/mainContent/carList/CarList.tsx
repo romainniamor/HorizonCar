@@ -16,18 +16,6 @@ export default function CarList({}: Props) {
   //affichage
   return (
     <CarListStyled>
-      {/* <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleChange} value={inputValue} />
-      </form>
-      <div className="filter">
-        <span className="results">
-          {cars.length}{" "}
-          {cars.length === 1 ? <span>Résultat</span> : <span>Résultats</span>}
-        </span>
-        <p onClick={resetFilter}>Effacer le filtre</p>
-      </div>
-      {!cars.length && <p>Aucun résultat pour '{inputValue}'</p>} */}
-
       {cars.map((car) => {
         return (
           <Car {...car} key={car.id}>
