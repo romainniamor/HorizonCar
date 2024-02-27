@@ -34,7 +34,7 @@ export default function MainForm({
           </div>
         )}
 
-        <IconButton onClick={onSubmit} icon={<FiSearch />} />
+        <IconButton icon={<FiSearch />} />
       </div>
     </FormStyled>
   );
@@ -53,7 +53,6 @@ const FormStyled = styled.form`
     gap: ${theme.spacing.xs};
     padding: 8px 15px;
     color: ${theme.colors.greyLight};
-    font-size: ${theme.fonts.sm};
     border: 1px solid ${theme.colors.greyLight};
     background-color: ${theme.colors.white};
     width: 70%;
@@ -66,7 +65,7 @@ const FormStyled = styled.form`
     input {
       border: none;
       width: 100%;
-      background: white;
+      background: ${theme.colors.white};
       color: ${theme.colors.dark};
       font-size: ${theme.fonts.P0};
 

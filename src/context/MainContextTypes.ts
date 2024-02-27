@@ -16,7 +16,9 @@ export type MainContextType = {
   carsSelected: CarType[];
   setCarsSelected: Dispatch<SetStateAction<CarType[]>>;
 
-  handleAddCartoSelection: () => void;
+  handleAddCartoSelection: (car: CarType) => void;
+  handleDeleteCarToSelection: (id: string) => void;
+
   isCarSelected: (id: string) => boolean;
   isPanelRightVisible: boolean;
   setIsPanelRightVisible: Dispatch<SetStateAction<boolean>>;

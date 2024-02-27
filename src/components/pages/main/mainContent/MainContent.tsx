@@ -54,6 +54,7 @@ export default function MainContent({}: Props) {
       {emptySelection && <EmptyMessage inputValue={newFilter} />}
 
       <CarList />
+
       {carsSelected.length > 0 && !isPanelRightVisible && <PanelBottom />}
     </MainContentStyled>
   );

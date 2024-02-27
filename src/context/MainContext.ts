@@ -18,7 +18,10 @@ const MainContext = createContext<MainContextType>({
   setCarsSelected: () => {},
 
   handleAddCartoSelection: () => {},
+  handleDeleteCarToSelection: () => {},
+
   isCarSelected: () => false,
+
   isPanelRightVisible: false,
   setIsPanelRightVisible: () => {},
   handleRightPanel: () => {},

@@ -6,13 +6,7 @@ import { useContext } from "react";
 import MainContext from "../../../../../context/MainContext";
 import { CarType } from "../../../../../types";
 
-type CarListProps = {
-  cars: CarType[];
-  handleAddCartoSelection: (car: CarType) => void;
-  isCarSelected: (id: string) => boolean;
-};
-
-export default function CarList({}: CarListProps) {
+export default function CarList() {
   //state
   const { handleAddCartoSelection, isCarSelected, cars } =
     useContext(MainContext);

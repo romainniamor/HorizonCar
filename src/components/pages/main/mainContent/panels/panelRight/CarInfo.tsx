@@ -1,7 +1,11 @@
 import { theme } from "../../../../../../theme";
 import styled from "styled-components";
 
-type CarInfoProps = {};
+type CarInfoProps = {
+  elements: { [key: string]: any }[];
+  index: number;
+  data: string;
+};
 
 export default function CarInfo({ elements, index, data }: CarInfoProps) {
   return (

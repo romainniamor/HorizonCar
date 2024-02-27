@@ -10,7 +10,7 @@ export default function IconButton({ icon, onClick }: IconButtonProps) {
   return <IconButtonStyled onClick={onClick}>{icon}</IconButtonStyled>;
 }
 
-const IconButtonStyled = styled.div`
+const IconButtonStyled = styled.button`
   cursor: pointer;
   display: flex;
   width: 40px;
@@ -22,6 +22,7 @@ const IconButtonStyled = styled.div`
   background-color: ${theme.colors.primary};
   padding: 6px;
   border-radius: ${theme.borderRadius.round};
+  border: none;
 
   &:hover {
     background-color: ${theme.colors.primaryLight};

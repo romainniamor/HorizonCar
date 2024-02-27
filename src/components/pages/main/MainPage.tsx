@@ -19,10 +19,6 @@ export default function MainPage() {
   const [formIsSubmited, setFormIsSubmited] = useState<boolean>(false);
   const [emptySelection, setEmptySelection] = useState<boolean>(false);
 
-  const handleDeleteCarToSelection = (id: string) => {
-    setCarsSelected([...carsSelected].filter((car) => car.id !== id));
-  };
-
   //comportements
 
   const handleAddCartoSelection = (car: CarType) => {
@@ -35,6 +31,10 @@ export default function MainPage() {
     if (carsSelected.find((carSelected) => carSelected.id === car.id)) {
       handleDeleteCarToSelection(car.id);
     }
+  };
+
+  const handleDeleteCarToSelection = (id: string) => {
+    setCarsSelected([...carsSelected].filter((car) => car.id !== id));
   };
 
   const isCarSelected = (id: string): boolean => {

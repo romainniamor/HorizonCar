@@ -6,6 +6,7 @@ export type CarType = {
   year: number;
   energy: string;
   kilometer: number;
+  category: string;
   gearbox: string;
   price: number;
   promotion: number;
