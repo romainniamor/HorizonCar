@@ -1,14 +1,18 @@
 import styled from "styled-components";
-import { useState } from "react";
 import PrimaryButton from "../../../../reusable/buttons/PrimaryButton";
 import Car from "./Car";
 import ToggleButton from "../../../../reusable/buttons/ToggleButton";
 import { useContext } from "react";
 import MainContext from "../../../../../context/MainContext";
+import { CarType } from "../../../../../types";
 
-type Props = {};
+type CarListProps = {
+  cars: CarType[];
+  handleAddCartoSelection: (car: CarType) => void;
+  isCarSelected: (id: string) => boolean;
+};
 
-export default function CarList({}: Props) {
+export default function CarList({}: CarListProps) {
   //state
   const { handleAddCartoSelection, isCarSelected, cars } =
     useContext(MainContext);
@@ -16,7 +20,7 @@ export default function CarList({}: Props) {
   //affichage
   return (
     <CarListStyled>
-      {cars.map((car) => {
+      {cars.map((car: CarType) => {
         return (
           <Car {...car} key={car.id}>
             <ToggleButton

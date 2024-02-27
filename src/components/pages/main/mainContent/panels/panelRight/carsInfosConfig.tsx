@@ -1,6 +1,7 @@
+import { CarType } from "../../../../../../types";
 import { formatedPrice } from "../../../../../../utils/math";
 
-export const getCarsInfos = (carsSelected) => {
+export const getCarsInfos = (carsSelected: CarType[]) => {
   return [
     {
       id: 1,

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { FaChevronCircleDown, FaChevronCircleUp } from "react-icons/fa";
 import { useContext } from "react";
 import MainContext from "../../../../../../context/MainContext";
 import { BiSolidChevronDown, BiSolidChevronUp } from "react-icons/bi";

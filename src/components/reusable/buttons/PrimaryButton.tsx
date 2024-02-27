@@ -34,7 +34,7 @@ const PrimaryButtonStyled = styled.button`
   border-radius: ${theme.borderRadius.round};
   width: 100%;
   background: ${theme.colors.primary};
-  font-size: ${theme.fonts.sm};
+  font-size: ${theme.fonts.P0};
   font-weight: ${theme.weights.semiBold};
   padding: 15px 30px;
   line-height: 1;
@@ -51,10 +51,5 @@ const PrimaryButtonStyled = styled.button`
   &:active {
     background: ${theme.colors.primary};
     color: ${theme.colors.white};
-  }
-
-  .disabled {
-    cursor: none;
-    background-color: yellow;
   }
 `;

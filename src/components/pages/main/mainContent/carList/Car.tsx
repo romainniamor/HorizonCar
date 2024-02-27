@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../../../../theme/index";
 import { formatedPrice } from "../../../../../utils/math";
 import { GoDotFill } from "react-icons/go";
+import { ReactNode } from "react";
 
 type CarProps = {
   imageSource: string;
@@ -12,6 +13,7 @@ type CarProps = {
   kilometer: number;
   gearbox: string;
   price: number;
+  children: ReactNode;
 };
 
 export default function Car({

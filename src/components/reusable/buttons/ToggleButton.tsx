@@ -53,7 +53,7 @@ const ToggleButtonStyled = styled.button`
     color: ${theme.colors.white};
   }
 
-  ${({ isChecked }) => isChecked && IsCheckedStyle}
+  ${(props) => props.isChecked && IsCheckedStyle}
 `;
 
 const IsCheckedStyle = css`

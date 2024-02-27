@@ -4,9 +4,7 @@ import { theme } from "../../../theme/index";
 import PrimaryButton from "../../reusable/buttons/PrimaryButton";
 import { FaChevronCircleRight } from "react-icons/fa";
 
-type Props = {};
-
-export default function ErrorPage({}: Props) {
+export default function ErrorPage({}) {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate("/");

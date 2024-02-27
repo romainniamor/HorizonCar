@@ -5,21 +5,23 @@ import MainContent from "./mainContent/MainContent";
 import MainContext from "../../../context/MainContext";
 import { useState } from "react";
 import { FAKEPARK } from "../../../fakeData/fakePark";
+import { CarType } from "../../../types";
 
 export default function MainPage() {
-  const [cars, setCars] = useState(FAKEPARK);
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const [carsSelected, setCarsSelected] = useState([]);
-  const [isPanelRightVisible, setIsPanelRightVisible] = useState(false);
-  const [newFilter, setNewFilter] = useState("");
-  const [formIsSubmited, setFormIsSubmited] = useState(false);
-  const [emptySelection, setEmptySelection] = useState(false);
+  const [cars, setCars] = useState<CarType[]>(FAKEPARK);
+  const [carsSelected, setCarsSelected] = useState<CarType[]>([]);
+  const [newFilter, setNewFilter] = useState<string>("");
+  const [isPanelRightVisible, setIsPanelRightVisible] =
+    useState<boolean>(false);
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
+  const [formIsSubmited, setFormIsSubmited] = useState<boolean>(false);
+  const [emptySelection, setEmptySelection] = useState<boolean>(false);
 
-  const handleDeleteCarToSelection = (id) => {
+  const handleDeleteCarToSelection = (id: string) => {
     setCarsSelected([...carsSelected].filter((car) => car.id !== id));
   };
 
-  const handleAddCartoSelection = (car) => {
+  const handleAddCartoSelection = (car: CarType) => {
     if (carsSelected.length < 2) {
       if (!carsSelected.find((carSelected) => carSelected.id === car.id)) {
         setCarsSelected([...carsSelected, car]);
@@ -32,21 +34,21 @@ export default function MainPage() {
   };
 
   const isCarSelected = (id: string): boolean => {
-    return carsSelected.find((car) => car.id === id) !== undefined;
+    return carsSelected.find((car: CarType) => car.id === id) !== undefined;
   };
 
   const handleRightPanel = () => {
     setIsPanelRightVisible(!isPanelRightVisible);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     if (newFilter) {
       e.preventDefault();
       const copyCars = [...cars];
       const updatedCars = copyCars.filter((car) =>
         car.modele.toLowerCase().includes(newFilter.toLowerCase())
       );
-      console.log("updatedCars", updatedCars);
+
       if (!updatedCars.length) {
         setEmptySelection(true);
         setFormIsSubmited(false);
@@ -59,7 +61,7 @@ export default function MainPage() {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewFilter(e.target.value);
   };
 
@@ -67,6 +69,7 @@ export default function MainPage() {
     setNewFilter("");
     setFormIsSubmited(false);
     setCars(FAKEPARK);
+    setEmptySelection(false);
   };
 
   const mainContextValue = {

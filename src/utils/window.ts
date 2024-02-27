@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 export const refreshPage = () => {
   window.location.reload();
 };
@@ -9,23 +11,28 @@ export const scrollToTop = () => {
   });
 };
 
-import { useRef } from "react";
+type CustomDocument = {
+  documentElement?: HTMLElement;
+  body?: HTMLElement;
+};
 
-const safeDocument = typeof document !== "undefined" ? document : {};
+const document: CustomDocument =
+  typeof window !== "undefined" ? window.document : {};
 
 /**
  * Usage:
  * const [blockScroll, allowScroll] = useScrollBlock();
  */
-export const useScrollBlock = () => {
-  const scrollBlocked = useRef();
-  const html = safeDocument.documentElement;
-  const { body } = safeDocument;
+export const useScrollBlock = (): Array<() => void> => {
+  const scrollBlocked = useRef<boolean>(false);
+  const html = document.documentElement!;
+
+  const { body } = document;
 
   const blockScroll = () => {
     if (!body || !body.style || scrollBlocked.current) return;
 
-    const scrollBarWidth = window.innerWidth - html.clientWidth;
+    const scrollBarWidth = window.innerWidth - (html?.clientWidth || 0);
     const bodyPaddingRight =
       parseInt(
         window.getComputedStyle(body).getPropertyValue("padding-right")
