@@ -8,6 +8,8 @@ import { FAKEPARK } from "../../../fakeData/fakePark";
 import { CarType } from "../../../types";
 
 export default function MainPage() {
+  //states
+
   const [cars, setCars] = useState<CarType[]>(FAKEPARK);
   const [carsSelected, setCarsSelected] = useState<CarType[]>([]);
   const [newFilter, setNewFilter] = useState<string>("");
@@ -20,6 +22,8 @@ export default function MainPage() {
   const handleDeleteCarToSelection = (id: string) => {
     setCarsSelected([...carsSelected].filter((car) => car.id !== id));
   };
+
+  //comportements
 
   const handleAddCartoSelection = (car: CarType) => {
     if (carsSelected.length < 2) {
@@ -72,6 +76,7 @@ export default function MainPage() {
     setEmptySelection(false);
   };
 
+  //context value
   const mainContextValue = {
     cars,
     setCars,
@@ -95,6 +100,7 @@ export default function MainPage() {
     setEmptySelection,
   };
 
+  //affichage
   return (
     <MainContext.Provider value={mainContextValue}>
       <MainPageStyled>

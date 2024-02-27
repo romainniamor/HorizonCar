@@ -1,6 +1,7 @@
 import { createContext } from "react";
+import { MainContextType } from "./MainContextTypes";
 
-export default createContext({
+const MainContext = createContext<MainContextType>({
   cars: [],
   setCars: () => {},
 
@@ -17,7 +18,7 @@ export default createContext({
   setCarsSelected: () => {},
 
   handleAddCartoSelection: () => {},
-  isCarSelected: () => {},
+  isCarSelected: () => false,
   isPanelRightVisible: false,
   setIsPanelRightVisible: () => {},
   handleRightPanel: () => {},
@@ -27,3 +28,5 @@ export default createContext({
 
   formIsSubmited: false,
 });
+
+export default MainContext;

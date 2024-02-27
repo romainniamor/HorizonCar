@@ -6,6 +6,7 @@ import { getCarsInfos } from "./carsInfosConfig";
 import { useContext } from "react";
 import MainContext from "../../../../../../context/MainContext";
 import { slideIn } from "../../../../../../theme/animations";
+import { CarType } from "../../../../../../types";
 
 export default function PanelRight() {
   const { carsSelected, isPanelRightVisible, setIsPanelRightVisible } =
@@ -27,14 +28,14 @@ export default function PanelRight() {
         <div className="comparison">
           <div className="top">
             <div className="section-title">
-              {carsSelected.map((car) => (
+              {carsSelected.map((car: CarType) => (
                 <span className="car-modele">{car.modele}</span>
               ))}
             </div>
           </div>
           <div className="header">
             <div className="section-image">
-              {carsSelected.map((car) => (
+              {carsSelected.map((car: CarType) => (
                 <img key={car.id} src={car.imageSource} alt={car.modele} />
               ))}
             </div>
@@ -49,7 +50,7 @@ export default function PanelRight() {
             </div>
           </div>
           <div className="footer">
-            {carsSelected.map((car) => (
+            {carsSelected.map((car: CarType) => (
               <PrimaryButton key={car.id} label="Voir la voiture" />
             ))}
           </div>
