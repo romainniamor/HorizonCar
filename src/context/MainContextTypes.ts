@@ -6,7 +6,7 @@ export type MainContextType = {
   setCars: Dispatch<SetStateAction<CarType[]>>;
   newFilter: string;
   setNewFilter: Dispatch<SetStateAction<string>>;
-  handleSubmit: () => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   handleChange: (e: React.FormEvent<HTMLInputElement>) => void;
   resetFilter: () => void;
 

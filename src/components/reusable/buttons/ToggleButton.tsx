@@ -1,4 +1,4 @@
-import { styled, css } from "styled-components";
+import { styled } from "styled-components";
 import { theme } from "../../../theme/index";
 import { FaCheck } from "react-icons/fa";
 
@@ -12,7 +12,7 @@ export default function ToggleButton({
   onClick,
 }: ToggleButtonProps) {
   return (
-    <ToggleButtonStyled onClick={onClick} isChecked={isChecked}>
+    <ToggleButtonStyled onClick={onClick}>
       {isChecked ? (
         <FaCheck className="checked" />
       ) : (
@@ -52,10 +52,8 @@ const ToggleButtonStyled = styled.button`
     background-color: ${theme.colors.primary};
     color: ${theme.colors.white};
   }
-
-  ${(props) => props.isChecked && IsCheckedStyle}
 `;
 
-const IsCheckedStyle = css`
-  border: 1px solid ${theme.colors.primary};
-`;
+// const IsCheckedStyle = css`
+//   border: 1px solid ${theme.colors.primary};
+// `;

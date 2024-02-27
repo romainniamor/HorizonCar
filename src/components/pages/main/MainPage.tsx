@@ -45,7 +45,7 @@ export default function MainPage() {
     setIsPanelRightVisible(!isPanelRightVisible);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     if (newFilter) {
       e.preventDefault();
       const copyCars = [...cars];
@@ -65,8 +65,8 @@ export default function MainPage() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNewFilter(e.target.value);
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    setNewFilter((e.target as HTMLInputElement).value);
   };
 
   const resetFilter = () => {
