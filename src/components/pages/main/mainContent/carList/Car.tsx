@@ -3,6 +3,7 @@ import { theme } from "../../../../../theme/index";
 import { formatedPrice } from "../../../../../utils/math";
 import { GoDotFill } from "react-icons/go";
 import { ReactNode } from "react";
+import DiscountTag from "../../../../reusable/DiscountTag";
 
 type CarProps = {
   imageSource: string;
@@ -31,6 +32,7 @@ export default function Car({
     <CarStyled>
       <div className="image-preview">
         <img src={imageSource} alt={modele} />
+        <DiscountTag discount={1300} />
       </div>
       <div className="card-content">
         <div className="car-info">
@@ -71,6 +73,7 @@ const CarStyled = styled.div`
   }
   .image-preview {
     width: 100%;
+    position: relative;
     img {
       width: 100%;
       object-fit: cover;
