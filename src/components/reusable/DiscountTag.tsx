@@ -18,11 +18,11 @@ const DiscountTagStyled = styled.div`
   display: flex;
   align-items: center;
   gap: ${theme.spacing.xxs};
-  padding: 6px 10px;
+  padding: 8px 10px;
   background: ${theme.colors.red};
 
   position: absolute;
-  top: 10px;
+  top: 15px;
   left: 0px;
 
   span {
