@@ -1,6 +1,6 @@
 export type CarType = {
   id: string;
-  imageSource: string;
+  imageSource: string[];
   modele: string;
   description: string;
   year: number;
