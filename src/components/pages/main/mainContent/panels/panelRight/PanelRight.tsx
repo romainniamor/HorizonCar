@@ -36,7 +36,7 @@ export default function PanelRight() {
           <div className="header">
             <div className="section-image">
               {carsSelected.map((car: CarType) => (
-                <img key={car.id} src={car.imageSource} alt={car.modele} />
+                <img key={car.id} src={car.imageSource[0]} alt={car.modele} />
               ))}
             </div>
 

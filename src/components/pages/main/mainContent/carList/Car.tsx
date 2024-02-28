@@ -13,7 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 type CarProps = CarType & {
   children: ReactNode;
@@ -170,5 +170,25 @@ const CarStyled = styled.div`
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-column-gap: 10px;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+  }
+
+  .swiper-button-prev:after {
+    color: ${theme.colors.greyLight};
+    font-size: ${theme.fonts.P1};
+    font-weight: ${theme.weights.bold};
+  }
+  .swiper-button-next:after {
+    color: ${theme.colors.greyLight};
+    font-size: ${theme.fonts.P1};
+    font-weight: ${theme.weights.bold};
   }
 `;
