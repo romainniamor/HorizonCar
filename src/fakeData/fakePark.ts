@@ -1,7 +1,11 @@
 export const FAKEPARK = [
   {
     id: "1",
-    imageSource: "vehicules/picasso.png",
+    imageSource: [
+      "vehicules/c4_picasso/1.png",
+      "vehicules/c4_picasso/2.png",
+      "vehicules/c4_picasso/3.png",
+    ],
     modele: "citroen c4 grand picasso",
     description: "1.6 blue-hdi",
     price: 12700,
@@ -14,7 +18,11 @@ export const FAKEPARK = [
   },
   {
     id: "2",
-    imageSource: "vehicules/mercedes.png",
+    imageSource: [
+      "vehicules/mercedes/1.png",
+      "vehicules/mercedes/2.png",
+      "vehicules/mercedes/3.png",
+    ],
     modele: "mercedes-benz classe b",
     description: "160 inspiration 7G-DCT",
     price: 14990,
@@ -27,7 +35,11 @@ export const FAKEPARK = [
   },
   {
     id: "3",
-    imageSource: "vehicules/cactus.png",
+    imageSource: [
+      "vehicules/c4_cactus/1.png",
+      "vehicules/c4_cactus/2.png",
+      "vehicules/c4_cactus/3.png",
+    ],
     modele: "citroen c4 cactus",
     description: "1.2 puretech shine",
     price: 9990,
@@ -40,7 +52,11 @@ export const FAKEPARK = [
   },
   {
     id: "4",
-    imageSource: "vehicules/kia.png",
+    imageSource: [
+      "vehicules/kia_sportage/1.png",
+      "vehicules/kia_sportage/2.png",
+      "vehicules/kia_sportage/3.png",
+    ],
     modele: "kia sportage",
     description: "1.6 CRDi ISG GT Line Premium 2WD DCT7",
     price: 22890,
@@ -53,7 +69,11 @@ export const FAKEPARK = [
   },
   {
     id: "5",
-    imageSource: "vehicules/audi.png",
+    imageSource: [
+      "vehicules/audi_a1/1.png",
+      "vehicules/audi_a1/2.png",
+      "vehicules/audi_a1/3.png",
+    ],
     modele: "Audi A1",
     description: "Sportback 1.0 TFSI Ultra Ambition S Tronic",
     price: 17590,
@@ -66,7 +86,11 @@ export const FAKEPARK = [
   },
   {
     id: "6",
-    imageSource: "vehicules/peugeot.png",
+    imageSource: [
+      "vehicules/peugeot_2008/1.png",
+      "vehicules/peugeot_2008/2.png",
+      "vehicules/peugeot_2008/3.png",
+    ],
     modele: "Peugeot 2008",
     description: "1.5 Blue-HDi Allure EAT8",
     price: 22500,

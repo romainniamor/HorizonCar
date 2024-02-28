@@ -20,6 +20,7 @@ const DiscountTagStyled = styled.div`
   gap: ${theme.spacing.xxs};
   padding: 8px 10px;
   background: ${theme.colors.red};
+  z-index: 3;
 
   position: absolute;
   top: 15px;
