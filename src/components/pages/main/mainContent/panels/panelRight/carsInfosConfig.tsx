@@ -1,5 +1,5 @@
 import { CarType } from "../../../../../../types";
-import { formatedPrice } from "../../../../../../utils/math";
+import { applyDiscount, formatedPrice } from "../../../../../../utils/math";
 
 export const getCarsInfos = (carsSelected: CarType[]) => {
   return [
@@ -23,7 +23,7 @@ export const getCarsInfos = (carsSelected: CarType[]) => {
         <div className="car-info">
           {carsSelected.map((car, index) => (
             <span className="car-data" key={index}>
-              {formatedPrice(car.price)}
+              {applyDiscount(car.price, car.discount)}
             </span>
           ))}
         </div>

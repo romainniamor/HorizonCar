@@ -2,14 +2,14 @@ import styled from "styled-components";
 import { theme } from "../../theme";
 
 type DiscountTagProps = {
-  discount: number;
+  amount: string | number;
 };
 
-export default function DiscountTag({ discount }: DiscountTagProps) {
+export default function DiscountTag({ amount }: DiscountTagProps) {
   return (
     <DiscountTagStyled>
       <span className="label">Economisez</span>
-      <span className="discount">{discount}</span>
+      <span className="discount">{amount}</span>
     </DiscountTagStyled>
   );
 }
