@@ -10,7 +10,6 @@ export default function DiscountTag({ discount }: DiscountTagProps) {
     <DiscountTagStyled>
       <span className="label">Economisez</span>
       <span className="discount">{discount}</span>
-      <span>€</span>
     </DiscountTagStyled>
   );
 }

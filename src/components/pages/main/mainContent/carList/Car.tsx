@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { theme } from "../../../../../theme/index";
-import { formatedPrice } from "../../../../../utils/math";
+import {
+  formatedKilometer,
+  formatedPrice,
+  applyDiscount,
+} from "../../../../../utils/math";
 import { GoDotFill } from "react-icons/go";
 import { ReactNode } from "react";
 import DiscountTag from "../../../../reusable/DiscountTag";
@@ -14,6 +18,7 @@ type CarProps = {
   kilometer: number;
   gearbox: string;
   price: number;
+  discount: number;
   children: ReactNode;
 };
 
@@ -26,13 +31,14 @@ export default function Car({
   kilometer,
   gearbox,
   price,
+  discount,
   children,
 }: CarProps) {
   return (
     <CarStyled>
       <div className="image-preview">
         <img src={imageSource} alt={modele} />
-        <DiscountTag discount={1300} />
+        <DiscountTag discount={formatedPrice(discount)} />
       </div>
       <div className="card-content">
         <div className="car-info">
@@ -42,12 +48,17 @@ export default function Car({
             <span className="info">
               {year} <GoDotFill />
               {energy} <GoDotFill />
-              {kilometer} km
+              {formatedKilometer(kilometer)}
             </span>
             <p>{gearbox}</p>
           </div>
           <div className="right">
-            <p className="price">{formatedPrice(price)}</p>
+            <div className="price">
+              <span className="price-with-discount">
+                {applyDiscount(price, discount)}
+              </span>
+              <span className="price">{formatedPrice(price)}</span>
+            </div>
           </div>
         </div>
         <div className="buttons">{children}</div>
@@ -95,10 +106,15 @@ const CarStyled = styled.div`
 
     .right {
       text-align: right;
+      display: flex;
+      flex-direction: column;
+
       .price {
         color: ${theme.colors.secondary};
         font-size: ${theme.fonts.P1};
         font-weight: ${theme.weights.bold};
+        display: flex;
+        flex-direction: column;
       }
     }
 
