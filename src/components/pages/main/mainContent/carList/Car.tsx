@@ -1,18 +1,16 @@
 import styled from "styled-components";
 import { theme } from "../../../../../theme/index";
-import { formatedPrice } from "../../../../../utils/math";
+import {
+  formatedKilometer,
+  formatedPrice,
+  applyDiscount,
+} from "../../../../../utils/math";
 import { GoDotFill } from "react-icons/go";
 import { ReactNode } from "react";
+import DiscountTag from "../../../../reusable/DiscountTag";
+import { CarType } from "../../../../../types";
 
-type CarProps = {
-  imageSource: string;
-  modele: string;
-  description: string;
-  year: number;
-  energy: string;
-  kilometer: number;
-  gearbox: string;
-  price: number;
+type CarProps = CarType & {
   children: ReactNode;
 };
 
@@ -25,12 +23,15 @@ export default function Car({
   kilometer,
   gearbox,
   price,
+  discount,
   children,
 }: CarProps) {
+  console.log(typeof formatedPrice(price));
   return (
     <CarStyled>
       <div className="image-preview">
         <img src={imageSource} alt={modele} />
+        {discount > 0 && <DiscountTag amount={formatedPrice(discount)} />}
       </div>
       <div className="card-content">
         <div className="car-info">
@@ -40,12 +41,21 @@ export default function Car({
             <span className="info">
               {year} <GoDotFill />
               {energy} <GoDotFill />
-              {kilometer} km
+              {formatedKilometer(kilometer)}
             </span>
             <p>{gearbox}</p>
           </div>
           <div className="right">
-            <p className="price">{formatedPrice(price)}</p>
+            {applyDiscount(price, discount) !== formatedPrice(price) ? (
+              <div className="prices">
+                <span className="price-with-discount">
+                  {applyDiscount(price, discount)}
+                </span>
+                <span className="prev-price">{formatedPrice(price)}</span>
+              </div>
+            ) : (
+              <span className="initial-price">{formatedPrice(price)}</span>
+            )}
           </div>
         </div>
         <div className="buttons">{children}</div>
@@ -71,6 +81,7 @@ const CarStyled = styled.div`
   }
   .image-preview {
     width: 100%;
+    position: relative;
     img {
       width: 100%;
       object-fit: cover;
@@ -92,10 +103,29 @@ const CarStyled = styled.div`
 
     .right {
       text-align: right;
-      .price {
+      display: flex;
+      flex-direction: column;
+      .initial-price {
         color: ${theme.colors.secondary};
         font-size: ${theme.fonts.P1};
         font-weight: ${theme.weights.bold};
+      }
+
+      .prices {
+        display: flex;
+        flex-direction: column;
+
+        .price-with-discount {
+          color: ${theme.colors.red};
+          font-size: ${theme.fonts.P1};
+          font-weight: ${theme.weights.bold};
+        }
+        .prev-price {
+          font-size: ${theme.fonts.P0};
+          color: ${theme.colors.secondary};
+          font-weight: ${theme.weights.semiBold};
+          text-decoration: line-through;
+        }
       }
     }
 

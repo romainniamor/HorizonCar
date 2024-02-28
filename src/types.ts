@@ -9,5 +9,5 @@ export type CarType = {
   category: string;
   gearbox: string;
   price: number;
-  promotion: number;
+  discount: number | 0;
 };

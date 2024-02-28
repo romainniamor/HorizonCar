@@ -24,8 +24,8 @@ const HeroItemStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: ${theme.fonts.S};
-  font-weight: ${theme.weights.medium};
+  font-size: ${theme.fonts.P0};
+  font-weight: ${theme.weights.semiBold};
   gap: ${theme.spacing.xs};
   height: 100%;
   width: 100%;
