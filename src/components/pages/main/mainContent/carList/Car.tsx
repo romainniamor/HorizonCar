@@ -10,6 +10,8 @@ import { ReactNode } from "react";
 import DiscountTag from "../../../../reusable/DiscountTag";
 import { CarType } from "../../../../../types";
 
+import Slider from "../../../../reusable/Slider";
+
 type CarProps = CarType & {
   children: ReactNode;
 };
@@ -26,11 +28,14 @@ export default function Car({
   discount,
   children,
 }: CarProps) {
-  console.log(typeof formatedPrice(price));
   return (
     <CarStyled>
       <div className="image-preview">
-        <img src={imageSource} alt={modele} />
+        <Slider>
+          {imageSource.map((image, index) => (
+            <img key={index} src={image} alt={modele} />
+          ))}
+        </Slider>
         {discount > 0 && <DiscountTag amount={formatedPrice(discount)} />}
       </div>
       <div className="card-content">
@@ -82,6 +87,7 @@ const CarStyled = styled.div`
   .image-preview {
     width: 100%;
     position: relative;
+    cursor: pointer;
     img {
       width: 100%;
       object-fit: cover;
@@ -152,5 +158,25 @@ const CarStyled = styled.div`
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-column-gap: 10px;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+  }
+
+  .swiper-button-prev:after {
+    color: ${theme.colors.greyLight};
+    font-size: ${theme.fonts.P1};
+    font-weight: ${theme.weights.bold};
+  }
+  .swiper-button-next:after {
+    color: ${theme.colors.greyLight};
+    font-size: ${theme.fonts.P1};
+    font-weight: ${theme.weights.bold};
   }
 `;

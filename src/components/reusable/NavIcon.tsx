@@ -1,28 +1,14 @@
 import styled from "styled-components";
 import { theme } from "../../theme/index";
+import { ReactNode } from "react";
 
-type NavIconProps = {
-  icon: any;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-  className: string;
+export type NavIconProps = {
+  icon: ReactNode;
+  className?: string;
 };
 
-export default function NavIcon({
-  icon,
-  onMouseEnter,
-  onMouseLeave,
-  className,
-}: NavIconProps) {
-  return (
-    <NavIconStyled
-      className={className}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      {icon}
-    </NavIconStyled>
-  );
+export default function NavIcon({ icon, className }: NavIconProps) {
+  return <NavIconStyled className={className}>{icon}</NavIconStyled>;
 }
 
 const NavIconStyled = styled.div`
