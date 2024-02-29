@@ -9,11 +9,8 @@ import { GoDotFill } from "react-icons/go";
 import { ReactNode } from "react";
 import DiscountTag from "../../../../reusable/DiscountTag";
 import { CarType } from "../../../../../types";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+
+import Slider from "../../../../reusable/Slider";
 
 type CarProps = CarType & {
   children: ReactNode;
@@ -31,24 +28,14 @@ export default function Car({
   discount,
   children,
 }: CarProps) {
-  console.log(typeof formatedPrice(price));
   return (
     <CarStyled>
       <div className="image-preview">
-        <Swiper
-          slidesPerView={1}
-          spaceBetween={10}
-          loop={true}
-          navigation={true}
-          modules={[Navigation]}
-          className="mySwiper"
-        >
+        <Slider>
           {imageSource.map((image, index) => (
-            <SwiperSlide key={index}>
-              <img src={image} alt={modele} />
-            </SwiperSlide>
+            <img key={index} src={image} alt={modele} />
           ))}
-        </Swiper>
+        </Slider>
         {discount > 0 && <DiscountTag amount={formatedPrice(discount)} />}
       </div>
       <div className="card-content">
@@ -100,6 +87,7 @@ const CarStyled = styled.div`
   .image-preview {
     width: 100%;
     position: relative;
+    cursor: pointer;
     img {
       width: 100%;
       object-fit: cover;
