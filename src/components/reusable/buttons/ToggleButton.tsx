@@ -7,6 +7,10 @@ type ToggleButtonProps = {
   onClick: () => void;
 };
 
+type ToggleButtonStyledProps = {
+  isChecked: boolean;
+};
+
 export default function ToggleButton({
   isChecked,
   onClick,
@@ -28,7 +32,7 @@ const IsCheckedStyle = css`
   border: 1px solid ${theme.colors.primary};
 `;
 
-const ToggleButtonStyled = styled.button`
+const ToggleButtonStyled = styled.button<ToggleButtonStyledProps>`
   cursor: pointer;
   background-color: ${theme.colors.white};
   border-radius: ${theme.borderRadius.round};
