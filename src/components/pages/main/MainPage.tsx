@@ -6,6 +6,7 @@ import MainContext from "../../../context/MainContext";
 import { useState } from "react";
 import { FAKEPARK } from "../../../fakeData/fakePark";
 import { CarType } from "../../../types";
+import { useNavigate } from "react-router-dom";
 
 export default function MainPage() {
   //states
@@ -18,6 +19,8 @@ export default function MainPage() {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
   const [formIsSubmited, setFormIsSubmited] = useState<boolean>(false);
   const [emptySelection, setEmptySelection] = useState<boolean>(false);
+
+  const navigate = useNavigate();
 
   //comportements
 
@@ -65,6 +68,10 @@ export default function MainPage() {
     }
   };
 
+  const handleViewCar = async (id: CarType) => {
+    navigate("/car/" + id);
+  };
+
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     setNewFilter((e.target as HTMLInputElement).value);
   };
@@ -98,6 +105,7 @@ export default function MainPage() {
     formIsSubmited,
     emptySelection,
     setEmptySelection,
+    handleViewCar,
   };
 
   //affichage
