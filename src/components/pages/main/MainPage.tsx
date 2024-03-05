@@ -68,7 +68,12 @@ export default function MainPage() {
     }
   };
 
-  const handleViewCar = async (id: CarType) => {
+  const selectedCar = (id: string) => {
+    return cars.find((car) => car.id === id);
+  };
+
+  const handleViewCar = async (id: string) => {
+    localStorage.setItem("selectedCar", JSON.stringify(selectedCar(id)));
     navigate("/car/" + id);
   };
 

@@ -27,5 +27,7 @@ export type MainContextType = {
   emptySelection: boolean;
   setEmptySelection: Dispatch<SetStateAction<boolean>>;
 
+  handleViewCar: (id: string) => void;
+
   formIsSubmited: boolean;
 };

@@ -2,9 +2,12 @@ import styled from "styled-components";
 import { theme } from "../../../theme";
 
 export default function CarPage() {
+  const selectedCar = JSON.parse(localStorage.getItem("selectedCar"));
+  console.log(selectedCar);
+
   return (
     <CarPageStyled>
-      <h2>CarPage de la voiture</h2>
+      <h2>CarPage de la voiture {selectedCar.modele} </h2>
     </CarPageStyled>
   );
 }
