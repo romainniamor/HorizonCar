@@ -8,7 +8,7 @@ import { CarType } from "../../../../../types";
 
 export default function CarList() {
   //state
-  const { handleAddCartoSelection, isCarSelected, cars } =
+  const { handleAddCartoSelection, handleViewCar, isCarSelected, cars } =
     useContext(MainContext);
 
   //affichage
@@ -21,7 +21,12 @@ export default function CarList() {
               isChecked={isCarSelected(car.id)}
               onClick={() => handleAddCartoSelection(car)}
             />
-            <PrimaryButton label="Voir cette voiture" onClick={() => {}} />
+            <PrimaryButton
+              label="Voir cette voiture"
+              onClick={() => {
+                handleViewCar(car.id);
+              }}
+            />
           </Car>
         );
       })}

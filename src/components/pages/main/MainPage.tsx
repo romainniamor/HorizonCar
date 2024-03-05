@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { theme } from "../../../theme/index";
-import NavBar from "./navBar/NavBar";
 import MainContent from "./mainContent/MainContent";
 import MainContext from "../../../context/MainContext";
 import { useState } from "react";
 import { FAKEPARK } from "../../../fakeData/fakePark";
 import { CarType } from "../../../types";
+import { useNavigate } from "react-router-dom";
 
 export default function MainPage() {
   //states
@@ -18,6 +18,8 @@ export default function MainPage() {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
   const [formIsSubmited, setFormIsSubmited] = useState<boolean>(false);
   const [emptySelection, setEmptySelection] = useState<boolean>(false);
+
+  const navigate = useNavigate();
 
   //comportements
 
@@ -65,6 +67,15 @@ export default function MainPage() {
     }
   };
 
+  const selectedCar = (id: string) => {
+    return cars.find((car) => car.id === id);
+  };
+
+  const handleViewCar = async (id: string) => {
+    localStorage.setItem("selectedCar", JSON.stringify(selectedCar(id)));
+    navigate("/car/" + id);
+  };
+
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     setNewFilter((e.target as HTMLInputElement).value);
   };
@@ -98,13 +109,13 @@ export default function MainPage() {
     formIsSubmited,
     emptySelection,
     setEmptySelection,
+    handleViewCar,
   };
 
   //affichage
   return (
     <MainContext.Provider value={mainContextValue}>
       <MainPageStyled>
-        <NavBar />
         <MainContent />
       </MainPageStyled>
     </MainContext.Provider>
@@ -113,7 +124,7 @@ export default function MainPage() {
 
 const MainPageStyled = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 50px);
   overflow-y: hidden;
   display: flex;
   flex-direction: column;

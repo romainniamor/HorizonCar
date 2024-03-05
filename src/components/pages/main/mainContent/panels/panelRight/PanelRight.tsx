@@ -9,8 +9,12 @@ import { slideIn } from "../../../../../../theme/animations";
 import { CarType } from "../../../../../../types";
 
 export default function PanelRight() {
-  const { carsSelected, isPanelRightVisible, setIsPanelRightVisible } =
-    useContext(MainContext);
+  const {
+    carsSelected,
+    isPanelRightVisible,
+    setIsPanelRightVisible,
+    handleViewCar,
+  } = useContext(MainContext);
 
   const carsInfos = getCarsInfos(carsSelected);
 
@@ -51,7 +55,11 @@ export default function PanelRight() {
           </div>
           <div className="footer">
             {carsSelected.map((car: CarType) => (
-              <PrimaryButton key={car.id} label="Voir la voiture" />
+              <PrimaryButton
+                key={car.id}
+                onClick={() => handleViewCar(car.id)}
+                label="Voir la voiture"
+              />
             ))}
           </div>
         </div>
@@ -68,7 +76,7 @@ const PanelRightStyled = styled.div`
     z-index: 5;
     position: absolute;
     left: 0;
-    top: 50px;
+    top: 0px;
   }
 
   .panel {

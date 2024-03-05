@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
+import Title from "../../../../reusable/Title";
 
 type Props = {
   inputValue: string;
@@ -9,10 +10,11 @@ export default function EmptyMessage({ inputValue }: Props) {
   return (
     <EmptyMessageStyled>
       <div className="white-box">
-        <h2 className="title">
-          Nous n'avons pas pu trouver de véhicules appropriés selon votre
-          recherche
-        </h2>
+        <Title
+          label={
+            "Nous n'avons pas pu trouver de véhicules appropriés selon votre recherche"
+          }
+        />
         <div className="text">
           <p>
             <span>Vous recherchez </span>
@@ -24,7 +26,7 @@ export default function EmptyMessage({ inputValue }: Props) {
           </p>
         </div>
       </div>
-      <h2 className="title">Ces voitures pourraient vous intéresser</h2>
+      <Title label={"Ces voitures pourraient vous intéresser"} />
     </EmptyMessageStyled>
   );
 }
@@ -57,25 +59,6 @@ const EmptyMessageStyled = styled.div`
       .input {
         font-weight: ${theme.weights.semiBold};
       }
-    }
-  }
-
-  h2 {
-    font-size: ${theme.fonts.P3};
-    font-weight: ${theme.weights.regular};
-    color: ${theme.colors.secondary};
-    position: relative;
-    padding: 40px;
-
-    &::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 25px;
-      width: 50px;
-      height: 2.3px;
-      background-color: ${theme.colors.primary};
     }
   }
 `;

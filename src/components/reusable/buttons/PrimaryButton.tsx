@@ -18,7 +18,7 @@ export default function PrimaryButton({
   return (
     <PrimaryButtonStyled className={className} onClick={onClick}>
       <span className="label">{label}</span>
-      <div className="icon">{icon && icon}</div>
+      {icon && <div className="icon">{icon}</div>}
     </PrimaryButtonStyled>
   );
 }
@@ -32,11 +32,11 @@ const PrimaryButtonStyled = styled.button`
   color: ${theme.colors.white};
   font-family: ${theme.fontFamily.normal};
   border-radius: ${theme.borderRadius.round};
-  width: 100%;
+
   background: ${theme.colors.primary};
   font-size: ${theme.fonts.P0};
   font-weight: ${theme.weights.semiBold};
-  padding: 15px 30px;
+  padding: 15px 40px;
   line-height: 1;
 
   .icon {
