@@ -55,6 +55,8 @@ const PanelContentStyled = styled.div`
     align-items: center;
     .button-box {
       width: 60%;
+      display: flex;
+      justify-content: center;
     }
   }
 
