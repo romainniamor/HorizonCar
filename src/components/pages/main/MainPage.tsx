@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { theme } from "../../../theme/index";
-import NavBar from "./navBar/NavBar";
 import MainContent from "./mainContent/MainContent";
 import MainContext from "../../../context/MainContext";
 import { useState } from "react";
@@ -117,7 +116,6 @@ export default function MainPage() {
   return (
     <MainContext.Provider value={mainContextValue}>
       <MainPageStyled>
-        <NavBar />
         <MainContent />
       </MainPageStyled>
     </MainContext.Provider>
@@ -126,7 +124,7 @@ export default function MainPage() {
 
 const MainPageStyled = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 50px);
   overflow-y: hidden;
   display: flex;
   flex-direction: column;

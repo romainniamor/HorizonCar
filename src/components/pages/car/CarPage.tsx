@@ -47,7 +47,7 @@ export default function CarPage() {
 
 const CarPageStyled = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 50px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,8 +55,8 @@ const CarPageStyled = styled.div`
   padding: 20px;
   .content {
     background: ${theme.colors.white};
-    padding: 20px;
     width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
 

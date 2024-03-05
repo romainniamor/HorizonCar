@@ -39,8 +39,8 @@ export default function ErrorPage({}) {
 }
 
 const ErrorPageStyled = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: calc(100vh - 50px);
   display: flex;
   align-items: center;
   padding: 100px;

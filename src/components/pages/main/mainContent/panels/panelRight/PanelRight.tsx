@@ -76,7 +76,7 @@ const PanelRightStyled = styled.div`
     z-index: 5;
     position: absolute;
     left: 0;
-    top: 50px;
+    top: 0px;
   }
 
   .panel {
