@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../../../../../theme/index";
 import TextInput from "../../../../reusable/TextInput";
 
 type Props = {

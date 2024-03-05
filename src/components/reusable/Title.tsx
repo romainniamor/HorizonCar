@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import { theme } from "../../theme/index";
 
-export default function Title({ label }: string) {
+type TitleProps = {
+  label: string;
+};
+
+export default function Title({ label }: TitleProps) {
   return (
     <TitleStyled>
       <h2 className="title">{label}</h2>

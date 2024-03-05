@@ -11,6 +11,7 @@ type TextInputProps = {
   value?: string;
   icon?: React.ReactNode;
   isSearchIcon?: boolean;
+  onDelete?: () => void;
 };
 
 export default function TextInput({

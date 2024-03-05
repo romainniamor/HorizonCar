@@ -6,7 +6,8 @@ import Title from "../../reusable/Title";
 import TextInput from "../../reusable/TextInput";
 
 export default function CarPage() {
-  const selectedCar = JSON.parse(localStorage.getItem("selectedCar"));
+  const selectedCarJSON = localStorage.getItem("selectedCar");
+  const selectedCar = selectedCarJSON ? JSON.parse(selectedCarJSON) : null;
 
   return (
     <CarPageStyled>
@@ -27,10 +28,7 @@ export default function CarPage() {
             <TextInput placeholder={"exemple@exemple.com"} />
 
             <div className="button">
-              <PrimaryButton
-                label="Suivant"
-                onClick={(e) => e.preventDefault()}
-              />
+              <PrimaryButton label="Suivant" onClick={() => {}} />
             </div>
           </form>
           <Link className="link" to="/">
