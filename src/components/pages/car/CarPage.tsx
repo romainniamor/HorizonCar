@@ -3,6 +3,7 @@ import { theme } from "../../../theme";
 import PrimaryButton from "../../reusable/buttons/PrimaryButton";
 import { Link } from "react-router-dom";
 import Title from "../../reusable/Title";
+import TextInput from "../../reusable/TextInput";
 
 export default function CarPage() {
   const selectedCar = JSON.parse(localStorage.getItem("selectedCar"));
@@ -22,13 +23,9 @@ export default function CarPage() {
 
           <form>
             <label htmlFor="email">Email</label>
-            <div className="text-input">
-              <input
-                type="text"
-                placeholder="exemple@exemple.com"
-                className="input"
-              />
-            </div>
+
+            <TextInput placeholder={"exemple@exemple.com"} />
+
             <div className="button">
               <PrimaryButton
                 label="Suivant"
@@ -52,7 +49,7 @@ const CarPageStyled = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${theme.colors.background_white};
-  padding: 20px;
+  padding: 30px;
   .content {
     background: ${theme.colors.white};
     width: 100%;
@@ -86,49 +83,17 @@ const CarPageStyled = styled.div`
         .button {
           display: flex;
           justify-content: center;
+          margin: ${theme.spacing.md};
         }
 
         label {
           font-weight: ${theme.weights.bold};
           text-align: left;
-        }
-        .text-input {
-          border-radius: ${theme.borderRadius.round};
-          display: flex;
-          align-items: center;
-          gap: ${theme.spacing.xs};
-          padding: 8px 15px;
-          color: ${theme.colors.greyLight};
-          border: 1px solid ${theme.colors.greyLight};
-          background-color: ${theme.colors.white};
-          width: 70%;
-          transition: all 0.2s ease-in-out;
-          width: 100%;
-          margin-bottom: 20px;
-
-          &:hover {
-            border: 1px solid ${theme.colors.primary};
-          }
-
-          input {
-            border: none;
-            width: 100%;
-            background: ${theme.colors.white};
-            color: ${theme.colors.dark};
-            font-size: ${theme.fonts.P0};
-
-            &::placeholder {
-              color: ${theme.colors.greyMedium};
-            }
-            &:focus {
-              outline: 0px;
-            }
-          }
+          margin-bottom: ${theme.spacing.xxs};
         }
       }
       .link {
         color: ${theme.colors.secondary};
-
         font-size: ${theme.fonts.P0};
       }
     }
