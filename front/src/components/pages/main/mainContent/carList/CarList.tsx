@@ -14,22 +14,23 @@ export default function CarList() {
   //affichage
   return (
     <CarListStyled>
-      {cars.map((car: CarType) => {
-        return (
-          <Car {...car} key={car.id}>
-            <ToggleButton
-              isChecked={isCarSelected(car.id)}
-              onClick={() => handleAddCartoSelection(car)}
-            />
-            <PrimaryButton
-              label="Voir cette voiture"
-              onClick={() => {
-                handleViewCar(car.id);
-              }}
-            />
-          </Car>
-        );
-      })}
+      {cars &&
+        cars.map((car: CarType) => {
+          return (
+            <Car {...car} key={car.id}>
+              <ToggleButton
+                isChecked={isCarSelected(car.id)}
+                onClick={() => handleAddCartoSelection(car)}
+              />
+              <PrimaryButton
+                label="Voir cette voiture"
+                onClick={() => {
+                  handleViewCar(car.id);
+                }}
+              />
+            </Car>
+          );
+        })}
     </CarListStyled>
   );
 }

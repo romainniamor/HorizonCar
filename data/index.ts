@@ -1,9 +1,13 @@
 import { carsData } from "./data";
-import express from "express";
 
 // Initialize Express
+const express = require("express");
+const cors = require("cors");
 const app = express();
 const data = carsData;
+
+app.use(cors({ methods: "GET" }));
+
 // Create GET request
 app.get("/", (req, res) => {
   res.send("Horizon Car's server is running...");

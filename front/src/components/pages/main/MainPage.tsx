@@ -6,11 +6,13 @@ import { useState } from "react";
 import { FAKEPARK } from "../../../fakeData/fakePark";
 import { CarType } from "../../../types";
 import { useNavigate } from "react-router-dom";
+import { getCars } from "../../../api/cars";
+import { useEffect } from "react";
 
 export default function MainPage() {
   //states
 
-  const [cars, setCars] = useState<CarType[]>(FAKEPARK);
+  const [cars, setCars] = useState<CarType[]>([]);
   const [carsSelected, setCarsSelected] = useState<CarType[]>([]);
   const [newFilter, setNewFilter] = useState<string>("");
   const [isPanelRightVisible, setIsPanelRightVisible] =
@@ -22,6 +24,14 @@ export default function MainPage() {
   const navigate = useNavigate();
 
   //comportements
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const carsToShow = await getCars();
+      setCars(carsToShow);
+    };
+    fetchData();
+  }, []);
 
   const handleAddCartoSelection = (car: CarType) => {
     if (carsSelected.length < 2) {
